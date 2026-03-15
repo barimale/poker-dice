@@ -1,4 +1,5 @@
 ﻿using PokerDice.Engine;
+using PokerDice.Model;
 
 namespace UTs.Executor
 {
@@ -19,7 +20,8 @@ namespace UTs.Executor
            .ToArray();
 
             //when
-            DiceText = string.Join(", ", dice);
+            var context = new DiceContext(dice);
+            DiceText = context.ToString();
             var result = _interpreter.Interpret(dice);
 
             //then
