@@ -7,6 +7,7 @@
         HighDice,
         ThreeOfKind,
         Pair,
+        TwoPairs,
         Poker,
         SmallStraight,
         LargeStraight

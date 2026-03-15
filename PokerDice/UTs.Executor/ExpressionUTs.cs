@@ -57,6 +57,21 @@ namespace UTs.Executor
         }
 
         [Fact]
+        public void DetectTwoPairsAndReturnResults()
+        {
+            //given
+            int[] dice = [1, 2, 2, 5, 5];
+
+            //when
+            DiceText = string.Join(", ", dice);
+            var result = _interpreter.Interpret(dice);
+
+            //then
+            Assert.Equal(DiceType.TwoPairs, result.Type);
+            Assert.Equal(14, result.Result);
+        }
+
+        [Fact]
         public void DetectPairAndReturnResults()
         {
             //given

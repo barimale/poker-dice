@@ -13,6 +13,7 @@ namespace PokerDice.Engine
         new FullHouseExpression(),
         new StraightExpression(),
         new ThreeOfKindExpression(),
+        new TwoPairsExpression(),
         new PairExpression(),
         new HighDiceExpression()
     };
