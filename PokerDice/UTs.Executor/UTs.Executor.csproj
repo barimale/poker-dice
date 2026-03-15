@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PokerDice\PokerDice.csproj" />
+    <ProjectReference Include="..\PokerDice\PokerDiceEngine.csproj" />
   </ItemGroup>
 
   <ItemGroup>
