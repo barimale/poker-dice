@@ -2,14 +2,14 @@
 {
     public enum DiceType
     {
-        FourOfKind = 0,
+        Poker = 0,
+        FourOfKind,
         Full,
-        HighDice,
-        ThreeOfKind,
-        Pair,
-        TwoPairs,
-        Poker,
+        LargeStraight,
         SmallStraight,
-        LargeStraight
+        ThreeOfKind,
+        TwoPairs,
+        Pair,
+        HighDice
     }
 }
