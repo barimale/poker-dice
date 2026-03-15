@@ -30,7 +30,7 @@ namespace UTs.Executor
         public void DetectFourOfKindAndReturnResults()
         {
             //given
-            int[] dice = [1, 1, 1, 1, 6];
+            int[] dice = [5, 5, 5, 5, 6];
 
             //when
             DiceText = string.Join(", ", dice);
@@ -38,7 +38,7 @@ namespace UTs.Executor
 
             //then
             Assert.Equal(DiceType.FourOfKind, result.Type);
-            Assert.Equal(16, result.Result);
+            Assert.Equal(80, result.Result);
         }
 
         [Fact]
