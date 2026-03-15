@@ -13,7 +13,7 @@ namespace PokerDice.Model.Expressions
             return new DiceResult()
             {
                 Type = DiceType.FourOfKind,
-                Result = dice.GroupBy(x => x).First(p => p.Count() == 4).Sum()
+                Result = dice.GroupBy(x => x).First(p => p.Count() == 4).Sum()* 4
             };
         }
     }

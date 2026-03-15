@@ -6,10 +6,12 @@ namespace PokerDice.Model.Expressions
     {
         public DiceResult? Interpret(int[] dice)
         {
-            var res = dice.GroupBy(x => x)
-                        .FirstOrDefault(g => g.Count() == 2);
+            var pairs = dice
+            .GroupBy(x => x)
+            .Where(g => g.Count() == 2)
+            .ToList();
 
-            if (res == null)
+            if (!pairs.Any())
                 return null;
 
             return dice
@@ -18,9 +20,7 @@ namespace PokerDice.Model.Expressions
                 ? new DiceResult()
                 {
                     Type = DiceType.Pair,
-                    Result = dice.GroupBy(x => x)
-                        .First(g => g.Count() == 2)
-                        .Sum()
+                    Result = pairs.First().Sum()
                 }
                 : null;
         }

@@ -9,10 +9,10 @@ namespace PokerDice.Engine
         private readonly HashSet<IExpression> _rules = new() // kolejnosc ruli istotna
     {
         new PokerExpression(),
+        new FourOfKindExpression(),
         new FullHouseExpression(),
         new StraightExpression(),
         new ThreeOfKindExpression(),
-        new FourOfKindExpression(),
         new PairExpression(),
         new HighDiceExpression()
     };

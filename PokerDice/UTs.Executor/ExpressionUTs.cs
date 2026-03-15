@@ -38,7 +38,7 @@ namespace UTs.Executor
 
             //then
             Assert.Equal(DiceType.FourOfKind, result.Type);
-            Assert.Equal(4, result.Result);
+            Assert.Equal(16, result.Result);
         }
 
         [Fact]
@@ -57,6 +57,21 @@ namespace UTs.Executor
         }
 
         [Fact]
+        public void DetectPairAndReturnResults()
+        {
+            //given
+            int[] dice = [1, 2, 2, 5, 6];
+
+            //when
+            DiceText = string.Join(", ", dice);
+            var result = _interpreter.Interpret(dice);
+
+            //then
+            Assert.Equal(DiceType.Pair, result.Type);
+            Assert.Equal(4, result.Result);
+        }
+
+        [Fact]
         public void DetectHighDiceAndReturnResults()
         {
             //given
@@ -69,6 +84,51 @@ namespace UTs.Executor
             //then
             Assert.Equal(DiceType.HighDice, result.Type);
             Assert.Equal(6, result.Result);
+        }
+
+        [Fact]
+        public void DetectSmallStraightAndReturnResults()
+        {
+            //given
+            int[] dice = [1, 2, 3, 4, 5];
+
+            //when
+            DiceText = string.Join(", ", dice);
+            var result = _interpreter.Interpret(dice);
+
+            //then
+            Assert.Equal(DiceType.SmallStraight, result.Type);
+            Assert.Equal(15, result.Result);
+        }
+
+        [Fact]
+        public void DetectLargeStraightAndReturnResults()
+        {
+            //given
+            int[] dice = [6, 2, 3, 4, 5];
+
+            //when
+            DiceText = string.Join(", ", dice);
+            var result = _interpreter.Interpret(dice);
+
+            //then
+            Assert.Equal(DiceType.LargeStraight, result.Type);
+            Assert.Equal(20, result.Result);
+        }
+
+        [Fact]
+        public void DetectFullAndReturnResults()
+        {
+            //given
+            int[] dice = [6, 6, 3, 3, 3];
+
+            //when
+            DiceText = string.Join(", ", dice);
+            var result = _interpreter.Interpret(dice);
+
+            //then
+            Assert.Equal(DiceType.Full, result.Type);
+            Assert.Equal(21, result.Result);
         }
     }
 }

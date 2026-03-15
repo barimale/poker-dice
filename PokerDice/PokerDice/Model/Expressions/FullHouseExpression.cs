@@ -11,7 +11,7 @@ namespace PokerDice.Model.Expressions
                 new DiceResult()
                 {
                     Type = DiceType.Full,
-                    Result = groups.Sum()
+                    Result = dice.Sum()
                 }
                 : null;
         }
