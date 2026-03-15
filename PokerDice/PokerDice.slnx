@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../.gitignore" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="PokerDice/PokerDice.csproj" />
+  <Project Path="UTs.Executor/UTs.Executor.csproj" />
+</Solution>
