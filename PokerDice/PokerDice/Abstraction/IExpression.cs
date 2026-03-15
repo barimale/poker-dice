@@ -1,8 +1,10 @@
-﻿namespace PokerDice.Abstraction
+﻿using PokerDice.Model;
+
+namespace PokerDice.Abstraction
 {
     public interface IExpression
     {
-        string? Interpret(int[] dice);
+        DiceResult? Interpret(int[] dice);
     }
 
 }

@@ -20,7 +20,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            ResultText = _interpreter.Interpret(dice);
+            var result = _interpreter.Interpret(dice);
 
             //then
         }

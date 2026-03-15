@@ -4,11 +4,17 @@ namespace PokerDice.Model.Expressions
 {
     public class FourOfKindExpression : IExpression
     {
-        public string? Interpret(int[] dice)
+        public DiceResult? Interpret(int[] dice)
         {
-            return dice.GroupBy(x => x).Any(g => g.Count() == 4)
-                ? "Kareta"
-                : null;
+            var result = dice.GroupBy(x => x).FirstOrDefault(p => p.Count() == 4);
+            if (result == null)
+                return null;
+
+            return new DiceResult()
+            {
+                Type = DiceType.FourOfKind,
+                Result = dice.GroupBy(x => x).First(p => p.Count() == 4).Sum()
+            };
         }
     }
 

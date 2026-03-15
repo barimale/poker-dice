@@ -1,21 +1,23 @@
 ﻿using PokerDice.Abstraction;
+using PokerDice.Model;
 using PokerDice.Model.Expressions;
 
 namespace PokerDice.Engine
 {
     public class PokerDiceInterpreter
     {
-        private readonly List<IExpression> _rules = new()
+        private readonly HashSet<IExpression> _rules = new() // kolejnosc ruli istotna
     {
         new PokerExpression(),
         new FullHouseExpression(),
         new StraightExpression(),
         new ThreeOfKindExpression(),
         new FourOfKindExpression(),
-        new PairExpression()
+        new PairExpression(),
+        new HighDiceExpression()
     };
 
-        public string Interpret(int[] dice)
+        public DiceResult? Interpret(int[] dice)
         {
             foreach (var rule in _rules)
             {
@@ -24,7 +26,7 @@ namespace PokerDice.Engine
                     return result;
             }
 
-            return "Brak układu";
+            return null;
         }
     }
 
