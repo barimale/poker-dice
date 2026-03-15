@@ -6,7 +6,7 @@ namespace PokerDice.Engine
 {
     public class PokerDiceInterpreter
     {
-        private readonly HashSet<IExpression> _rules = new() // kolejnosc ruli istotna
+        private readonly HashSet<IExpression> _rules = new() // kolejnosc regul istotna
     {
         new PokerExpression(),
         new FourOfKindExpression(),
