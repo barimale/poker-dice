@@ -1,8 +1,10 @@
-﻿namespace PokerDice.Model.Expresions
+﻿using PokerDice.Abstraction;
+
+namespace PokerDice.Model.Expressions
 {
     public class PairExpression : IExpression
     {
-        public string Interpret(int[] dice)
+        public string? Interpret(int[] dice)
         {
             return dice
                 .GroupBy(x => x)

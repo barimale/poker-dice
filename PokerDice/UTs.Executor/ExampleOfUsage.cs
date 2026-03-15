@@ -2,7 +2,7 @@
 
 namespace UTs.Executor
 {
-    public class UnitTest1
+    public class ExampleOfUsage
     {
         private readonly Random _rng = new Random();
         private readonly PokerDiceInterpreter _interpreter = new PokerDiceInterpreter();

@@ -1,8 +1,10 @@
-﻿namespace PokerDice.Model.Expressions
+﻿using PokerDice.Abstraction;
+
+namespace PokerDice.Model.Expressions
 {
     public class StraightExpression : IExpression
     {
-        public string Interpret(int[] dice)
+        public string? Interpret(int[] dice)
         {
             var sorted = dice.OrderBy(x => x).ToArray();
             if (sorted.SequenceEqual(new[] { 1, 2, 3, 4, 5 }))
