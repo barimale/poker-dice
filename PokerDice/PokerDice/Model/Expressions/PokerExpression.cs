@@ -14,7 +14,7 @@ namespace PokerDice.Model.Expressions
                 ? new DiceResult()
                 {
                     Type = DiceType.Poker,
-                    Result = dice.GroupBy(x => x).First(g => g.Count() == 5).Sum() + 50
+                    Result = dice.Sum() + 50
                 }
                 : null;
         }
