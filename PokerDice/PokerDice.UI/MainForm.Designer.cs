@@ -64,7 +64,6 @@
             textBox2.ReadOnly = true;
             textBox2.Size = new Size(125, 27);
             textBox2.TabIndex = 2;
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox3
             // 
@@ -86,7 +85,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 155);
+            label2.Location = new Point(27, 151);
             label2.Name = "label2";
             label2.Size = new Size(52, 20);
             label2.TabIndex = 5;
@@ -95,7 +94,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(27, 210);
+            label3.Location = new Point(27, 206);
             label3.Name = "label3";
             label3.Size = new Size(43, 20);
             label3.TabIndex = 6;

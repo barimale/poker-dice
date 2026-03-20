@@ -24,10 +24,5 @@ namespace PokerDice.UI
             textBox2.Text = result.Result.ToString();
             textBox3.Text = result.Type.ToString();
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
