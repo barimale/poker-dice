@@ -1,12 +1,19 @@
-﻿using PokerDice.Engine;
-using PokerDice.Model;
+﻿using PokerDiceEngine.Engine;
+using PokerDiceEngine.Model.Dice;
+using PokerDiceEngine;
 
 namespace UTs.Executor
 {
     public class ExpressionUTs
     {
-        private readonly Random _rng = new Random();
-        private readonly PokerDiceInterpreter _interpreter = new PokerDiceInterpreter();
+        private readonly PokerDiceEngine.PokerDiceEngine _engine;
+        private readonly PokerDiceInterpreter _interpreter;
+
+        public ExpressionUTs()
+        {
+            _engine = new PokerDiceEngine.PokerDiceEngine();
+            _interpreter = _engine.Interpreter;
+        }
 
         public string DiceText { get; set; } = string.Empty;
         public string ResultText { get; set; } = string.Empty;

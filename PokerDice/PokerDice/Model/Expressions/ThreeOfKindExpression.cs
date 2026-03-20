@@ -1,6 +1,7 @@
-﻿using PokerDice.Abstraction;
+﻿using PokerDiceEngine.Abstraction;
+using PokerDiceEngine.Model.Dice;
 
-namespace PokerDice.Model.Expressions
+namespace PokerDiceEngine.Model.Expressions
 {
     public class ThreeOfKindExpression : IExpression
     {

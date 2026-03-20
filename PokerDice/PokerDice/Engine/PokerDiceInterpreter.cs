@@ -1,8 +1,8 @@
-﻿using PokerDice.Abstraction;
-using PokerDice.Model;
-using PokerDice.Model.Expressions;
+﻿using PokerDiceEngine.Abstraction;
+using PokerDiceEngine.Model.Dice;
+using PokerDiceEngine.Model.Expressions;
 
-namespace PokerDice.Engine
+namespace PokerDiceEngine.Engine
 {
     public class PokerDiceInterpreter
     {

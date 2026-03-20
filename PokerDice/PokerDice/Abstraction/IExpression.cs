@@ -1,6 +1,6 @@
-﻿using PokerDice.Model;
+﻿using PokerDiceEngine.Model.Dice;
 
-namespace PokerDice.Abstraction
+namespace PokerDiceEngine.Abstraction
 {
     public interface IExpression
     {

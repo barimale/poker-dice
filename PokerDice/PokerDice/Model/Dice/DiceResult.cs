@@ -1,4 +1,4 @@
-﻿namespace PokerDice.Model
+﻿namespace PokerDiceEngine.Model.Dice
 {
     public class DiceResult
     {

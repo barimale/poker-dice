@@ -1,13 +1,7 @@
-﻿using PokerDice.Engine;
-using PokerDice.Model;
-
-namespace UTs.Executor
+﻿namespace UTs.Executor
 {
     public class ExampleOfUsage
     {
-        private readonly Random _rng = new Random();
-        private readonly PokerDiceInterpreter _interpreter = new PokerDiceInterpreter();
-
         public string DiceText { get; set; } = string.Empty;
         public string ResultText { get; set; } = string.Empty;
 
@@ -15,14 +9,12 @@ namespace UTs.Executor
         public void Execute()
         {
             //given
-            int[] dice = Enumerable.Range(0, 5)
-           .Select(_ => _rng.Next(1, 7))
-           .ToArray();
+            var engine = new PokerDiceEngine.PokerDiceEngine();
+            var dice = engine.SourceGenerator.Generate();
 
             //when
-            var context = new DiceContext(dice);
-            DiceText = context.ToString();
-            var result = _interpreter.Interpret(dice);
+            DiceText = engine.SourceGenerator.ToString();
+            var result = engine.Interpreter.Interpret(dice.Dice);
 
             //then
         }
