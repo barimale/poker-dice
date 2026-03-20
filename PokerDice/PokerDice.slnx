@@ -3,6 +3,7 @@
     <File Path="../.gitignore" />
     <File Path="../README.md" />
   </Folder>
+  <Project Path="PokerDice.UI/PokerDice.UI.csproj" Id="8eb168dc-4a61-459a-9ae9-c0966bf4352e" />
   <Project Path="PokerDice/PokerDiceEngine.csproj" />
   <Project Path="UTs.Executor/UTs.Executor.csproj" />
 </Solution>
