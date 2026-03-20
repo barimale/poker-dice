@@ -30,7 +30,7 @@ namespace UTs.Executor
             //then
             Assert.NotNull(result);
             Assert.Equal(DiceType.Poker, result.Type);
-            Assert.Equal(55, result.Result);
+            Assert.Equal(dice.Sum() + 50, result.Result);
         }
 
         [Fact]
