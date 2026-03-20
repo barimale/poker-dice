@@ -5,8 +5,8 @@ namespace PokerDiceEngine
 {
     public class PokerDiceEngine
     {
-        public PokerDiceSourceGenerator SourceGenerator { get; } = new PokerDiceSourceGenerator();
+        public PokerDiceSourceGenerator SourceGenerator { get; private set; } = new PokerDiceSourceGenerator();
 
-        public PokerDiceInterpreter Interpreter  { get; } = new PokerDiceInterpreter();
+        public PokerDiceInterpreter Interpreter  { get; private set; } = new PokerDiceInterpreter();
     }
 }
