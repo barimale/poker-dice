@@ -17,6 +17,13 @@ namespace PokerDice.UI
             this.Text = "Poker Dice Game";
             this.MinimizeBox = false;
             this.MaximizeBox = false;
+            this.startButton.BackColor = Color.Green;
+            this.round2Button.BackColor = Color.White;
+            this.round2Button.ForeColor = Color.Green;
+            this.round3Button.BackColor = Color.White;
+            this.round3Button.ForeColor = Color.Green;
+            this.resetButton.BackColor = Color.Blue;
+            this.resetButton.ForeColor = Color.White;
             this.startButton.Enabled = true;
             this.round2Button.Enabled = false;
             this.round3Button.Enabled = false;
@@ -38,10 +45,10 @@ namespace PokerDice.UI
                 var checkBox = new CheckBox();
                 checkBox.Name = index.ToString();
                 checkBox.Text = d.ToString();
-                checkBox.AutoSize = true;
+                checkBox.AutoSize = false;
                 checkBox.Appearance = Appearance.Button;
                 checkBox.TextAlign = ContentAlignment.MiddleCenter;
-                checkBox.Size = new Size(180, 180); 
+                checkBox.Size = new Size(80, 80);
                 dicesPanel.Controls.Add(checkBox);
                 index += 1;
             }

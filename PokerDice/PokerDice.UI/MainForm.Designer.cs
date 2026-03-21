@@ -107,11 +107,11 @@
             label3.TabIndex = 6;
             label3.Text = "Type:";
             // 
-            // flowLayoutPanel1
+            // dicesPanel
             // 
             dicesPanel.Location = new Point(232, 61);
-            dicesPanel.Name = "flowLayoutPanel1";
-            dicesPanel.Size = new Size(402, 393);
+            dicesPanel.Name = "dicesPanel";
+            dicesPanel.Size = new Size(486, 393);
             dicesPanel.TabIndex = 7;
             // 
             // round2Button
@@ -128,8 +128,8 @@
             // 
             // round3Button
             // 
-            round3Button.BackColor = Color.FromArgb(192, 0, 0);
-            round3Button.ForeColor = SystemColors.Control;
+            round3Button.BackColor = Color.White;
+            round3Button.ForeColor = Color.FromArgb(0, 192, 0);
             round3Button.Location = new Point(12, 116);
             round3Button.Name = "round3Button";
             round3Button.Size = new Size(200, 46);
@@ -170,7 +170,7 @@
             // 
             // resetButton
             // 
-            resetButton.BackColor = Color.FromArgb(192, 0, 0);
+            resetButton.BackColor = Color.Blue;
             resetButton.ForeColor = SystemColors.Control;
             resetButton.Location = new Point(12, 220);
             resetButton.Name = "resetButton";
@@ -185,7 +185,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(642, 466);
+            ClientSize = new Size(730, 466);
             Controls.Add(resetButton);
             Controls.Add(label5);
             Controls.Add(label4);
