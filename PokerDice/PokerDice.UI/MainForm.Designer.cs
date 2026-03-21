@@ -65,7 +65,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(539, 230);
+            textBox3.Location = new Point(534, 230);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
             textBox3.Size = new Size(125, 27);
@@ -83,7 +83,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(479, 233);
+            label3.Location = new Point(474, 233);
             label3.Name = "label3";
             label3.Size = new Size(44, 20);
             label3.TabIndex = 6;
@@ -93,7 +93,7 @@
             // 
             dicesPanel.Location = new Point(232, 61);
             dicesPanel.Name = "dicesPanel";
-            dicesPanel.Size = new Size(486, 101);
+            dicesPanel.Size = new Size(437, 101);
             dicesPanel.TabIndex = 7;
             // 
             // round2Button
@@ -170,7 +170,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(730, 274);
+            ClientSize = new Size(675, 274);
             Controls.Add(resetButton);
             Controls.Add(label5);
             Controls.Add(label4);
