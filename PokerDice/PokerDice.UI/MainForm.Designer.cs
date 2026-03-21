@@ -44,12 +44,12 @@
             resetButton = new Button();
             SuspendLayout();
             // 
-            // button1
+            // startButton
             // 
             startButton.BackColor = Color.FromArgb(192, 0, 0);
             startButton.ForeColor = SystemColors.Control;
             startButton.Location = new Point(12, 12);
-            startButton.Name = "button1";
+            startButton.Name = "startButton";
             startButton.Size = new Size(200, 46);
             startButton.TabIndex = 0;
             startButton.Text = "START";
@@ -124,6 +124,7 @@
             round2Button.TabIndex = 8;
             round2Button.Text = "Round 2";
             round2Button.UseVisualStyleBackColor = false;
+            round2Button.Click += round2Button_Click;
             // 
             // round3Button
             // 

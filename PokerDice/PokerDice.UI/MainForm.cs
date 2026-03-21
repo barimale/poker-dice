@@ -31,9 +31,11 @@ namespace PokerDice.UI
         {
             context = engine.SourceGenerator.Generate();
             textBox1.Text = context.ToString();
+            // apply dice to checkboxes
             this.startButton.Enabled = false;
             this.solveButton.Enabled = true;
             this.resetButton.Enabled = true;
+            this.round2Button.Enabled = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -41,11 +43,18 @@ namespace PokerDice.UI
             var result = engine.Interpreter.Interpret(context.Dice);
             textBox2.Text = result.Result.ToString();
             textBox3.Text = result.Type.ToString();
+            solveButton.Enabled = false;
         }
 
         private void resetButton_Click(object sender, EventArgs e)
         {
             Form1_Load(sender, e);
+        }
+
+        private void round2Button_Click(object sender, EventArgs e)
+        {
+            this.round2Button.Enabled = false;
+            this.round3Button.Enabled = true;
         }
     }
 }
