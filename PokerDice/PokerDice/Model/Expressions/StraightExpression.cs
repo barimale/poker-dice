@@ -12,13 +12,13 @@ namespace PokerDiceEngine.Model.Expressions
                 return new DiceResult()
                 {
                     Type = DiceType.SmallStraight,
-                    Result = 15
+                    Result = 30 //15
                 };
             if (sorted.SequenceEqual(new[] { 2, 3, 4, 5, 6 }))
                 return new DiceResult()
                 {
                     Type = DiceType.LargeStraight,
-                    Result = 20,
+                    Result = 30 //20,
                 };
 
             return null;

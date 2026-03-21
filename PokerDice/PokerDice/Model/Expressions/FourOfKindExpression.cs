@@ -14,7 +14,7 @@ namespace PokerDiceEngine.Model.Expressions
             return new DiceResult()
             {
                 Type = DiceType.FourOfKind,
-                Result = dice.GroupBy(x => x).First(p => p.Count() == 4).Sum()* 4
+                Result = 45 //dice.GroupBy(x => x).First(p => p.Count() == 4).Sum()* 4
             };
         }
     }

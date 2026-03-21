@@ -12,7 +12,7 @@ namespace PokerDiceEngine.Model.Expressions
                 new DiceResult()
                 {
                     Type = DiceType.Full,
-                    Result = dice.Sum()
+                    Result = 40 //dice.Sum()
                 }
                 : null;
         }

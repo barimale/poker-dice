@@ -26,6 +26,7 @@ namespace PokerDice.UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Text = "Poker Dice Game";
             this.MinimizeBox = false;
             this.MaximizeBox = false;

@@ -21,7 +21,7 @@ namespace PokerDiceEngine.Model.Expressions
                 ? new DiceResult()
                 {
                     Type = DiceType.Pair,
-                    Result = pairs.First().Sum()
+                    Result = 10 //pairs.First().Sum()
                 }
                 : null;
         }

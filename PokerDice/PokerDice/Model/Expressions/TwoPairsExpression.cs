@@ -17,7 +17,7 @@ namespace PokerDiceEngine.Model.Expressions
                 new DiceResult()
                 {
                     Type = DiceType.TwoPairs,
-                    Result = pairs.Sum(p => p.Key * 2)
+                    Result = 20 //pairs.Sum(p => p.Key * 2)
                 }
                 : null;
         }

@@ -15,7 +15,7 @@ namespace PokerDiceEngine.Model.Expressions
                 ? new DiceResult()
                 {
                     Type = DiceType.Poker,
-                    Result = dice.Sum() + 50
+                    Result = 60 //dice.Sum() + 50
                 }
                 : null;
         }

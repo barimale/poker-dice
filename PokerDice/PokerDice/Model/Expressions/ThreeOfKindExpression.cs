@@ -15,7 +15,7 @@ namespace PokerDiceEngine.Model.Expressions
                 ? new DiceResult()
                 {
                     Type = DiceType.ThreeOfKind,
-                    Result = dice.GroupBy(x => x).First(g => g.Count() == 3).Sum()
+                    Result = 25 //dice.GroupBy(x => x).First(g => g.Count() == 3).Sum()
                 }
                 : null;
         }

@@ -30,7 +30,7 @@ namespace UTs.Executor
             //then
             Assert.NotNull(result);
             Assert.Equal(DiceType.Poker, result.Type);
-            Assert.Equal(dice.Sum() + 50, result.Result);
+            Assert.Equal(60, result.Result);
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace UTs.Executor
             //then
             Assert.NotNull(result);
             Assert.Equal(DiceType.FourOfKind, result.Type);
-            Assert.Equal(80, result.Result);
+            Assert.Equal(45, result.Result);
         }
 
         [Fact]
@@ -62,7 +62,7 @@ namespace UTs.Executor
             //then
             Assert.NotNull(result);
             Assert.Equal(DiceType.ThreeOfKind, result.Type);
-            Assert.Equal(3, result.Result);
+            Assert.Equal(25, result.Result);
         }
 
         [Fact]
@@ -78,7 +78,7 @@ namespace UTs.Executor
             //then
             Assert.NotNull(result);
             Assert.Equal(DiceType.TwoPairs, result.Type);
-            Assert.Equal(14, result.Result);
+            Assert.Equal(20, result.Result);
         }
 
         [Fact]
@@ -94,7 +94,7 @@ namespace UTs.Executor
             //then
             Assert.NotNull(result);
             Assert.Equal(DiceType.Pair, result.Type);
-            Assert.Equal(4, result.Result);
+            Assert.Equal(10, result.Result);
         }
 
         [Fact]
@@ -126,7 +126,7 @@ namespace UTs.Executor
             //then
             Assert.NotNull(result);
             Assert.Equal(DiceType.SmallStraight, result.Type);
-            Assert.Equal(15, result.Result);
+            Assert.Equal(30, result.Result);
         }
 
         [Fact]
@@ -142,7 +142,7 @@ namespace UTs.Executor
             //then
             Assert.NotNull(result);
             Assert.Equal(DiceType.LargeStraight, result.Type);
-            Assert.Equal(20, result.Result);
+            Assert.Equal(30, result.Result);
         }
 
         [Fact]
@@ -158,7 +158,7 @@ namespace UTs.Executor
             //then
             Assert.NotNull(result);
             Assert.Equal(DiceType.Full, result.Type);
-            Assert.Equal(21, result.Result);
+            Assert.Equal(40, result.Result);
         }
     }
 }
