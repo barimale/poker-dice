@@ -97,7 +97,6 @@ namespace PokerDice.UI
             this.round3Button.Enabled = false;
             this.solveButton.Enabled = false;
             this.resetButton.Enabled = false;
-            textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
         }
@@ -114,7 +113,6 @@ namespace PokerDice.UI
         private void button1_Click(object sender, EventArgs e)
         {
             context = engine.SourceGenerator.Generate();
-            textBox1.Text = context.ToString();
             // apply dice to checkboxes
             var index = 1;
             foreach(var d in context.Dice)
@@ -179,8 +177,6 @@ namespace PokerDice.UI
 
             Execute();
 
-            textBox1.Text = context.ToString();
-
             this.round2Button.Enabled = false;
             this.round3Button.Enabled = true;
         }
@@ -244,9 +240,6 @@ namespace PokerDice.UI
             }
 
             Execute();
-
-            // display dice
-            textBox1.Text = context.ToString();
 
             // disable all checkboxes
             foreach (var checkbox in dicesPanel.Controls.OfType<CheckBox>())

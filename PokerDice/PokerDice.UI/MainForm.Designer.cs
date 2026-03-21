@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             startButton = new Button();
-            textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
-            label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             dicesPanel = new FlowLayoutPanel();
@@ -47,6 +45,7 @@
             // startButton
             // 
             startButton.BackColor = Color.FromArgb(192, 0, 0);
+            startButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             startButton.ForeColor = SystemColors.Control;
             startButton.Location = new Point(12, 12);
             startButton.Name = "startButton";
@@ -56,17 +55,9 @@
             startButton.UseVisualStyleBackColor = false;
             startButton.Click += button1_Click;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(72, 314);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 1;
-            // 
             // textBox2
             // 
-            textBox2.Location = new Point(72, 370);
+            textBox2.Location = new Point(294, 230);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
             textBox2.Size = new Size(125, 27);
@@ -74,25 +65,16 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(72, 425);
+            textBox3.Location = new Point(539, 230);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
             textBox3.Size = new Size(125, 27);
             textBox3.TabIndex = 3;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 316);
-            label1.Name = "label1";
-            label1.Size = new Size(42, 20);
-            label1.TabIndex = 4;
-            label1.Text = "Dice:";
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 373);
+            label2.Location = new Point(234, 233);
             label2.Name = "label2";
             label2.Size = new Size(52, 20);
             label2.TabIndex = 5;
@@ -101,7 +83,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 428);
+            label3.Location = new Point(479, 233);
             label3.Name = "label3";
             label3.Size = new Size(44, 20);
             label3.TabIndex = 6;
@@ -111,7 +93,7 @@
             // 
             dicesPanel.Location = new Point(232, 61);
             dicesPanel.Name = "dicesPanel";
-            dicesPanel.Size = new Size(486, 393);
+            dicesPanel.Size = new Size(486, 101);
             dicesPanel.TabIndex = 7;
             // 
             // round2Button
@@ -141,6 +123,7 @@
             // solveButton
             // 
             solveButton.BackColor = Color.FromArgb(192, 0, 0);
+            solveButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             solveButton.ForeColor = SystemColors.Control;
             solveButton.Location = new Point(12, 168);
             solveButton.Name = "solveButton";
@@ -153,18 +136,20 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(18, 273);
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label4.Location = new Point(232, 181);
             label4.Name = "label4";
-            label4.Size = new Size(82, 20);
+            label4.Size = new Size(88, 20);
             label4.TabIndex = 11;
             label4.Text = "SOLUTION:";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label5.Location = new Point(232, 25);
             label5.Name = "label5";
-            label5.Size = new Size(134, 20);
+            label5.Size = new Size(139, 20);
             label5.TabIndex = 12;
             label5.Text = "Select dices to roll:";
             // 
@@ -185,7 +170,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(730, 466);
+            ClientSize = new Size(730, 274);
             Controls.Add(resetButton);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -195,10 +180,8 @@
             Controls.Add(dicesPanel);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Controls.Add(startButton);
             Name = "MainForm";
             Text = "Form1";
@@ -210,10 +193,8 @@
         #endregion
 
         private Button startButton;
-        private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
-        private Label label1;
         private Label label2;
         private Label label3;
         private FlowLayoutPanel dicesPanel;
