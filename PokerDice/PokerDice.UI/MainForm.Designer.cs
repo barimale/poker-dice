@@ -103,9 +103,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(12, 428);
             label3.Name = "label3";
-            label3.Size = new Size(43, 20);
+            label3.Size = new Size(44, 20);
             label3.TabIndex = 6;
-            label3.Text = "Type:";
+            label3.Text = "TYPE:";
             // 
             // dicesPanel
             // 
@@ -155,9 +155,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(18, 273);
             label4.Name = "label4";
-            label4.Size = new Size(67, 20);
+            label4.Size = new Size(82, 20);
             label4.TabIndex = 11;
-            label4.Text = "Solution:";
+            label4.Text = "SOLUTION:";
             // 
             // label5
             // 

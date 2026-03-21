@@ -106,7 +106,7 @@ namespace PokerDice.UI
         {
             var senderCheckBox = sender as CheckBox;
             if (senderCheckBox.Checked)
-                senderCheckBox.BackColor = Color.IndianRed;
+                senderCheckBox.BackColor = Color.Green;
             else
                 senderCheckBox.BackColor = SystemColors.Control;
         }
@@ -130,7 +130,7 @@ namespace PokerDice.UI
                 checkBox.MouseEnter += Control_MouseEnter;
                 checkBox.MouseLeave += Control_MouseLeave;
                 checkBox.BackColor = SystemColors.Control;
-                checkBox.FlatStyle = FlatStyle.Flat;
+                //checkBox.FlatStyle = FlatStyle.Flat;
                 checkBox.CheckedChanged += checkBox1_CheckedChanged;
 
                 dicesPanel.Controls.Add(checkBox);
