@@ -35,11 +35,19 @@ namespace PokerDice.UI
                 {
                     startButton.BackColor = Color.Green;
                     startButton.ForeColor = Color.White;
+                    startButton.Font = new Font(
+                        startButton.Font,
+                        FontStyle.Bold
+                    );
                 }
                 else
                 {
                     startButton.BackColor = SystemColors.ControlDark;
                     startButton.ForeColor = SystemColors.ControlText;
+                    startButton.Font = new Font(
+                        startButton.Font,
+                        FontStyle.Regular
+                    );
                 }
             };
 
@@ -63,11 +71,19 @@ namespace PokerDice.UI
                 {
                     solveButton.BackColor = Color.Red;
                     solveButton.ForeColor = Color.White;
+                    solveButton.Font = new Font(
+                        solveButton.Font,
+                        FontStyle.Bold
+                    );
                 }
                 else
                 {
                     solveButton.BackColor = SystemColors.ControlDark;
                     solveButton.ForeColor = SystemColors.ControlText;
+                    solveButton.Font = new Font(
+                        solveButton.Font,
+                        FontStyle.Regular
+                    );
                 }
             };
 
@@ -85,13 +101,20 @@ namespace PokerDice.UI
                 }
             };
 
-            this.startButton.BackColor = Color.Green;
-            this.round2Button.BackColor = Color.White;
-            this.round2Button.ForeColor = Color.Green;
-            this.round3Button.BackColor = Color.White;
-            this.round3Button.ForeColor = Color.Green;
-            this.resetButton.BackColor = Color.Blue;
-            this.resetButton.ForeColor = Color.White;
+            this.resetButton.EnabledChanged += (s, ev) =>
+            {
+                if (resetButton.Enabled)
+                {
+                    resetButton.BackColor = Color.Blue;
+                    resetButton.ForeColor = Color.White;
+                }
+                else
+                {
+                    resetButton.BackColor = SystemColors.ControlDark;
+                    resetButton.ForeColor = SystemColors.ControlText;
+                }
+            };
+
             this.startButton.Enabled = true;
             this.round2Button.Enabled = false;
             this.round3Button.Enabled = false;

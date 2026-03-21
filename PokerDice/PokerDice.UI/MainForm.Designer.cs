@@ -44,7 +44,7 @@
             // 
             // startButton
             // 
-            startButton.BackColor = Color.FromArgb(0, 192, 0);
+            startButton.BackColor = Color.Green;
             startButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             startButton.ForeColor = SystemColors.Control;
             startButton.Location = new Point(12, 12);
