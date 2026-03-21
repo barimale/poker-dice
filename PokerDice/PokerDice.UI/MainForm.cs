@@ -35,11 +35,14 @@ namespace PokerDice.UI
             var index = 1;
             foreach(var d in context.Dice)
             {
-                var checkbox = new CheckBox();
-                checkbox.Name = index.ToString();
-                checkbox.Text = d.ToString();
-                checkbox.AutoSize = true;
-                dicesPanel.Controls.Add(checkbox);
+                var checkBox = new CheckBox();
+                checkBox.Name = index.ToString();
+                checkBox.Text = d.ToString();
+                checkBox.AutoSize = true;
+                checkBox.Appearance = Appearance.Button;
+                checkBox.TextAlign = ContentAlignment.MiddleCenter;
+                checkBox.Size = new Size(180, 180); 
+                dicesPanel.Controls.Add(checkBox);
                 index += 1;
             }
 
