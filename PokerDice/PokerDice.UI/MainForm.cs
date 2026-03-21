@@ -65,6 +65,16 @@ namespace PokerDice.UI
 
         private void round2Button_Click(object sender, EventArgs e)
         {
+            var anySelected = dicesPanel
+                .Controls
+                .OfType<CheckBox>()
+                .Any(c => c.Checked);
+
+            if(!anySelected)
+            {
+                return;
+            }
+
             Execute();
 
             textBox1.Text = context.ToString();
@@ -121,10 +131,26 @@ namespace PokerDice.UI
 
         private void round3Button_Click(object sender, EventArgs e)
         {
+            var anySelected = dicesPanel
+                .Controls
+                .OfType<CheckBox>()
+                .Any(c => c.Checked);
+
+            if (!anySelected)
+            {
+                return;
+            }
+
             Execute();
 
+            // display dice
             textBox1.Text = context.ToString();
 
+            // disable all checkboxes
+            foreach (var checkbox in dicesPanel.Controls.OfType<CheckBox>())
+            {
+                checkbox.Enabled = false;
+            }
             this.round3Button.Enabled = false;
         }
     }
