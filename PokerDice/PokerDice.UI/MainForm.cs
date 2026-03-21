@@ -48,6 +48,7 @@ namespace PokerDice.UI
                 checkBox.AutoSize = false;
                 checkBox.Appearance = Appearance.Button;
                 checkBox.TextAlign = ContentAlignment.MiddleCenter;
+                checkBox.Font = new Font(checkBox.Font.FontFamily, 18f);
                 checkBox.Size = new Size(80, 80);
                 dicesPanel.Controls.Add(checkBox);
                 index += 1;
