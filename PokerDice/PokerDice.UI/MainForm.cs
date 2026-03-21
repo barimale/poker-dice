@@ -57,6 +57,12 @@ namespace PokerDice.UI
             solveButton.Enabled = false;
             round2Button.Enabled = false;
             round3Button.Enabled = false;
+
+            foreach(var checkbox in dicesPanel.Controls.OfType<CheckBox>())
+            {
+                checkbox.Checked = false;
+                checkbox.Enabled = false;
+            }
         }
 
         private void resetButton_Click(object sender, EventArgs e)
