@@ -28,7 +28,7 @@ namespace PokerDice.UI
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Text = "Poker Dice Game";
-            this.MinimizeBox = false;
+            this.MinimizeBox = true;
             this.MaximizeBox = false;
             this.startButton.EnabledChanged += (s, ev) =>
             {
