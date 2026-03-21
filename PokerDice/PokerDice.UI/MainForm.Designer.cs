@@ -146,7 +146,7 @@
             solveButton.Name = "solveButton";
             solveButton.Size = new Size(200, 46);
             solveButton.TabIndex = 10;
-            solveButton.Text = "Solve";
+            solveButton.Text = "SOLVE";
             solveButton.UseVisualStyleBackColor = false;
             solveButton.Click += button4_Click;
             // 

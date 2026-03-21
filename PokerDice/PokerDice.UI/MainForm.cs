@@ -12,11 +12,79 @@ namespace PokerDice.UI
             InitializeComponent();
         }
 
+        private void Control_MouseEnter(object sender, EventArgs e)
+        {
+            var c = sender as Control;
+            //c.BackColor = Color./*IndianRed*/;
+        }
+
+        private void Control_MouseLeave(object sender, EventArgs e)
+        {
+            var c = sender as Control;
+            //c.BackColor = /*SystemColors*/.Control;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Text = "Poker Dice Game";
             this.MinimizeBox = false;
             this.MaximizeBox = false;
+            this.startButton.EnabledChanged += (s, ev) =>
+            {
+                if (startButton.Enabled)
+                {
+                    startButton.BackColor = Color.Green;
+                    startButton.ForeColor = Color.White;
+                }
+                else
+                {
+                    startButton.BackColor = SystemColors.ControlDark;
+                    startButton.ForeColor = SystemColors.ControlText;
+                }
+            };
+
+            this.round2Button.EnabledChanged += (s, ev) =>
+            {
+                if (round2Button.Enabled)
+                {
+                    round2Button.BackColor = Color.Green;
+                    round2Button.ForeColor = Color.White;
+                }
+                else
+                {
+                    round2Button.BackColor = SystemColors.ControlDark;
+                    round2Button.ForeColor = SystemColors.ControlText;
+                }
+            };
+
+            this.solveButton.EnabledChanged += (s, ev) =>
+            {
+                if (solveButton.Enabled)
+                {
+                    solveButton.BackColor = Color.Red;
+                    solveButton.ForeColor = Color.White;
+                }
+                else
+                {
+                    solveButton.BackColor = SystemColors.ControlDark;
+                    solveButton.ForeColor = SystemColors.ControlText;
+                }
+            };
+
+            this.round3Button.EnabledChanged += (s, ev) =>
+            {
+                if (round3Button.Enabled)
+                {
+                    round3Button.BackColor = Color.Green;
+                    round3Button.ForeColor = Color.White;
+                }
+                else
+                {
+                    round3Button.BackColor = SystemColors.ControlDark;
+                    round3Button.ForeColor = SystemColors.ControlText;
+                }
+            };
+
             this.startButton.BackColor = Color.Green;
             this.round2Button.BackColor = Color.White;
             this.round2Button.ForeColor = Color.Green;
@@ -32,6 +100,15 @@ namespace PokerDice.UI
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            var senderCheckBox = sender as CheckBox;
+            if (senderCheckBox.Checked)
+                senderCheckBox.BackColor = Color.IndianRed;
+            else
+                senderCheckBox.BackColor = SystemColors.Control;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,6 +127,12 @@ namespace PokerDice.UI
                 checkBox.TextAlign = ContentAlignment.MiddleCenter;
                 checkBox.Font = new Font(checkBox.Font.FontFamily, 18f);
                 checkBox.Size = new Size(80, 80);
+                checkBox.MouseEnter += Control_MouseEnter;
+                checkBox.MouseLeave += Control_MouseLeave;
+                checkBox.BackColor = SystemColors.Control;
+                checkBox.FlatStyle = FlatStyle.Flat;
+                checkBox.CheckedChanged += checkBox1_CheckedChanged;
+
                 dicesPanel.Controls.Add(checkBox);
                 index += 1;
             }
