@@ -7,7 +7,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationIcon>Resources\heart.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\heart.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PokerDice\PokerDiceEngine.csproj" />

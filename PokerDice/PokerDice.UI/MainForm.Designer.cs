@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             startButton = new Button();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
@@ -183,6 +184,7 @@
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(startButton);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             Text = "Form1";
             Load += Form1_Load;
