@@ -153,7 +153,7 @@ namespace PokerDice.UI
                 checkBox.BackColor = SystemColors.Control;
                 //checkBox.FlatStyle = FlatStyle.Flat;
                 checkBox.CheckedChanged += checkBox1_CheckedChanged;
-
+                checkBox.EnabledChanged += CheckBox_EnabledChanged;
                 dicesPanel.Controls.Add(checkBox);
                 index += 1;
             }
@@ -162,6 +162,20 @@ namespace PokerDice.UI
             this.solveButton.Enabled = true;
             this.resetButton.Enabled = true;
             this.round2Button.Enabled = true;
+        }
+
+        private void CheckBox_EnabledChanged(object? sender, EventArgs e)
+        {
+            var senderCheckBox = sender as CheckBox;
+            if (senderCheckBox.Enabled)
+            {
+                // intentionally left blank
+            }
+            else
+            {
+                senderCheckBox.BackColor = SystemColors.ControlDark;
+                senderCheckBox.ForeColor = SystemColors.ControlText;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
