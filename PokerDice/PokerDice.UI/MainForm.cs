@@ -55,6 +55,8 @@ namespace PokerDice.UI
             textBox2.Text = result.Result.ToString();
             textBox3.Text = result.Type.ToString();
             solveButton.Enabled = false;
+            round2Button.Enabled = false;
+            round3Button.Enabled = false;
         }
 
         private void resetButton_Click(object sender, EventArgs e)
