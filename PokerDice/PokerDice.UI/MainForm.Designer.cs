@@ -44,7 +44,7 @@
             // 
             // startButton
             // 
-            startButton.BackColor = Color.FromArgb(192, 0, 0);
+            startButton.BackColor = Color.FromArgb(0, 192, 0);
             startButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             startButton.ForeColor = SystemColors.Control;
             startButton.Location = new Point(12, 12);
@@ -98,8 +98,8 @@
             // 
             // round2Button
             // 
-            round2Button.BackColor = Color.FromArgb(192, 0, 0);
-            round2Button.ForeColor = SystemColors.Control;
+            round2Button.BackColor = Color.White;
+            round2Button.ForeColor = Color.FromArgb(0, 192, 0);
             round2Button.Location = new Point(12, 64);
             round2Button.Name = "round2Button";
             round2Button.Size = new Size(200, 46);
