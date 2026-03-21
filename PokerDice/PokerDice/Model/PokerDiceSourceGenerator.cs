@@ -14,5 +14,10 @@ namespace PokerDiceEngine.Model
 
             return new DiceContext(dice);
         }
+
+        public int GenerateDie()
+        {
+            return _rng.Next(1, 7);
+        }
     }
 }

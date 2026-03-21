@@ -35,7 +35,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            dicesPanel = new FlowLayoutPanel();
             round2Button = new Button();
             round3Button = new Button();
             solveButton = new Button();
@@ -109,10 +109,10 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(232, 61);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(402, 393);
-            flowLayoutPanel1.TabIndex = 7;
+            dicesPanel.Location = new Point(232, 61);
+            dicesPanel.Name = "flowLayoutPanel1";
+            dicesPanel.Size = new Size(402, 393);
+            dicesPanel.TabIndex = 7;
             // 
             // round2Button
             // 
@@ -136,6 +136,7 @@
             round3Button.TabIndex = 9;
             round3Button.Text = "Round 3";
             round3Button.UseVisualStyleBackColor = false;
+            round3Button.Click += round3Button_Click;
             // 
             // solveButton
             // 
@@ -191,7 +192,7 @@
             Controls.Add(solveButton);
             Controls.Add(round3Button);
             Controls.Add(round2Button);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(dicesPanel);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -215,7 +216,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel dicesPanel;
         private Button round2Button;
         private Button round3Button;
         private Button solveButton;

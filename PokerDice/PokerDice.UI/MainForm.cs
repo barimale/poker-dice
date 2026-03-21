@@ -32,6 +32,17 @@ namespace PokerDice.UI
             context = engine.SourceGenerator.Generate();
             textBox1.Text = context.ToString();
             // apply dice to checkboxes
+            var index = 1;
+            foreach(var d in context.Dice)
+            {
+                var checkbox = new CheckBox();
+                checkbox.Name = index.ToString();
+                checkbox.Text = d.ToString();
+                checkbox.AutoSize = true;
+                dicesPanel.Controls.Add(checkbox);
+                index += 1;
+            }
+
             this.startButton.Enabled = false;
             this.solveButton.Enabled = true;
             this.resetButton.Enabled = true;
@@ -49,12 +60,72 @@ namespace PokerDice.UI
         private void resetButton_Click(object sender, EventArgs e)
         {
             Form1_Load(sender, e);
+            dicesPanel.Controls.Clear();
         }
 
         private void round2Button_Click(object sender, EventArgs e)
         {
+            Execute();
+
+            textBox1.Text = context.ToString();
+
             this.round2Button.Enabled = false;
             this.round3Button.Enabled = true;
+        }
+
+        private void Execute()
+        {
+            var selectedIndexes = dicesPanel
+                            .Controls
+                            .OfType<CheckBox>()
+                            .Where(c => c.Checked)
+                            .Select(c => int.Parse(c.Name))
+                            .ToList();
+
+            // re-roll selected dices
+            foreach (var index in selectedIndexes)
+            {
+                context.Dice[index - 1] = engine.SourceGenerator.GenerateDie();
+            }
+
+            var unselectedIndexes = dicesPanel
+                .Controls
+                .OfType<CheckBox>()
+                .Where(c => !c.Checked)
+                .Select(c => int.Parse(c.Name))
+                .ToList();
+
+            // freeze not selected dices
+            foreach (var unselected in unselectedIndexes)
+            {
+                var checkbox = dicesPanel.Controls.OfType<CheckBox>().First(c => c.Name == unselected.ToString());
+                checkbox.Enabled = false;
+            }
+
+            // refresh enabled checkboxes text
+            var unenabledCheckboxes =
+                dicesPanel
+                .Controls
+                .OfType<CheckBox>()
+                .Where(c => c.Enabled)
+                .Select(c => int.Parse(c.Name))
+                .ToList();
+
+            foreach (var ue in unenabledCheckboxes)
+            {
+                var checkbox = dicesPanel.Controls.OfType<CheckBox>().First(c => c.Name == ue.ToString());
+                checkbox.Text = context.Dice[ue - 1].ToString();
+                checkbox.Checked = false;
+            }
+        }
+
+        private void round3Button_Click(object sender, EventArgs e)
+        {
+            Execute();
+
+            textBox1.Text = context.ToString();
+
+            this.round3Button.Enabled = false;
         }
     }
 }
