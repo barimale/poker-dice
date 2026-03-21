@@ -162,7 +162,7 @@
             resetButton.Name = "resetButton";
             resetButton.Size = new Size(200, 46);
             resetButton.TabIndex = 13;
-            resetButton.Text = "RESTART";
+            resetButton.Text = "NEXT GAME";
             resetButton.UseVisualStyleBackColor = false;
             resetButton.Click += resetButton_Click;
             // 
