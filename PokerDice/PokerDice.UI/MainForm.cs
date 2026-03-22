@@ -157,7 +157,6 @@ namespace PokerDice.UI
                 checkBox.MouseEnter += Control_MouseEnter;
                 checkBox.MouseLeave += Control_MouseLeave;
                 checkBox.BackColor = SystemColors.Control;
-                //checkBox.FlatStyle = FlatStyle.Flat;
                 checkBox.CheckedChanged += checkBox1_CheckedChanged;
                 checkBox.EnabledChanged += CheckBox_EnabledChanged;
                 dicesPanel.Controls.Add(checkBox);
