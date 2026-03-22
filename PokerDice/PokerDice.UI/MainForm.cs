@@ -1,4 +1,5 @@
 using PokerDiceEngine.Model.Dice;
+using System.Drawing.Text;
 
 namespace PokerDice.UI
 {
@@ -6,10 +7,14 @@ namespace PokerDice.UI
     {
         private PokerDiceEngine.PokerDiceEngine engine = new PokerDiceEngine.PokerDiceEngine();
         private DiceContext context;
+        PrivateFontCollection pfc = new PrivateFontCollection();
+        Font diceFont;
 
         public MainForm()
         {
             InitializeComponent();
+            pfc.AddFontFile(@".\Resources\DpolyBlockDice.ttf");
+            diceFont = new Font(pfc.Families[0], 40f);
         }
 
         private void Control_MouseEnter(object sender, EventArgs e)
@@ -147,7 +152,7 @@ namespace PokerDice.UI
                 checkBox.AutoSize = false;
                 checkBox.Appearance = Appearance.Button;
                 checkBox.TextAlign = ContentAlignment.MiddleCenter;
-                checkBox.Font = new Font(checkBox.Font.FontFamily, 18f);
+                checkBox.Font = diceFont;
                 checkBox.Size = new Size(80, 80);
                 checkBox.MouseEnter += Control_MouseEnter;
                 checkBox.MouseLeave += Control_MouseLeave;

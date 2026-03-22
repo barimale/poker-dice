@@ -18,4 +18,10 @@
     <ProjectReference Include="..\PokerDice\PokerDiceEngine.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\DpolyBlockDice.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
