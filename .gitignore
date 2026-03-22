@@ -1,5 +1,7 @@
-/PokerDice/PokerDice/**
-/PokerDice/PokerDice/obj/**
+/PokerDice/PokerDice
+/PokerDice/PokerDice/obj
+/PokerDice.UI/PokerDice
+/PokerDice.UI/PokerDice/obj
 /PokerDice/UTs.Executor/obj
 /PokerDice/UTs.Executor/bin
 /PokerDice/.vs
