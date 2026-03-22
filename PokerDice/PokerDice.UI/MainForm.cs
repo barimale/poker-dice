@@ -290,6 +290,7 @@ namespace PokerDice.UI
                 checkbox.Enabled = false;
             }
             this.round3Button.Enabled = false;
+            button4_Click(sender, e);
         }
     }
 }
