@@ -52,7 +52,7 @@
             startButton.Name = "startButton";
             startButton.Size = new Size(200, 46);
             startButton.TabIndex = 0;
-            startButton.Text = "START";
+            startButton.Text = "ROUND I";
             startButton.UseVisualStyleBackColor = false;
             startButton.Click += button1_Click;
             // 
@@ -86,9 +86,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(474, 233);
             label3.Name = "label3";
-            label3.Size = new Size(44, 20);
+            label3.Size = new Size(43, 20);
             label3.TabIndex = 6;
-            label3.Text = "TYPE:";
+            label3.Text = "Type:";
             // 
             // dicesPanel
             // 
@@ -105,7 +105,7 @@
             round2Button.Name = "round2Button";
             round2Button.Size = new Size(200, 46);
             round2Button.TabIndex = 8;
-            round2Button.Text = "Round 2";
+            round2Button.Text = "ROUND II";
             round2Button.UseVisualStyleBackColor = false;
             round2Button.Click += round2Button_Click;
             // 
@@ -117,7 +117,7 @@
             round3Button.Name = "round3Button";
             round3Button.Size = new Size(200, 46);
             round3Button.TabIndex = 9;
-            round3Button.Text = "Round 3";
+            round3Button.Text = "ROUND III";
             round3Button.UseVisualStyleBackColor = false;
             round3Button.Click += round3Button_Click;
             // 
