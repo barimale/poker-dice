@@ -77,9 +77,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(234, 233);
             label2.Name = "label2";
-            label2.Size = new Size(52, 20);
+            label2.Size = new Size(51, 20);
             label2.TabIndex = 5;
-            label2.Text = "Result:";
+            label2.Text = "Points:";
             // 
             // label3
             // 
