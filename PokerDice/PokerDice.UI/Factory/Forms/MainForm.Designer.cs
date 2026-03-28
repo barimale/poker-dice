@@ -54,7 +54,7 @@
             startButton.TabIndex = 0;
             startButton.Text = "ROUND I";
             startButton.UseVisualStyleBackColor = false;
-            startButton.Click += button1_Click;
+            startButton.Click += round1Button_Click;
             // 
             // textBox2
             // 
@@ -199,7 +199,7 @@
         private TextBox textBox3;
         private Label label2;
         private Label label3;
-        private FlowLayoutPanel dicesPanel;
+        public FlowLayoutPanel dicesPanel;
         private Button round2Button;
         private Button round3Button;
         private Button solveButton;
