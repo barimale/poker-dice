@@ -127,8 +127,6 @@ namespace PokerDice.UI
             }
         }
 
-        
-
         private void button4_Click(object sender, EventArgs e)
         {
             var result = engine.Interpreter.Interpret(context.Dice);
