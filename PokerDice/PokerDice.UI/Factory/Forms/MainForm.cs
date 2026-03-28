@@ -130,7 +130,7 @@ namespace PokerDice.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var result = engine.Interpreter.Interpret(context.Dice);
+            var result = engine.Interpreter.InterpretToResult(context.Dice);
             textBox2.Text = result.Result.ToString();
             textBox3.Text = result.Type.ToString();
             solveButton.Enabled = false;

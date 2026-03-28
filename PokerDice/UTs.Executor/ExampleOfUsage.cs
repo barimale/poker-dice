@@ -14,7 +14,7 @@
 
             //when
             DiceText = engine.SourceGenerator.ToString();
-            var result = engine.Interpreter.Interpret(dice.Dice);
+            var result = engine.Interpreter.InterpretToResult(dice.Dice);
 
             //then
         }

@@ -25,7 +25,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            var result = _interpreter.Interpret(dice);
+            var result = _interpreter.InterpretToResult(dice);
 
             //then
             Assert.NotNull(result);
@@ -41,7 +41,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            var result = _interpreter.Interpret(dice);
+            var result = _interpreter.InterpretToResult(dice);
 
             //then
             Assert.NotNull(result);
@@ -57,7 +57,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            var result = _interpreter.Interpret(dice);
+            var result = _interpreter.InterpretToResult(dice);
 
             //then
             Assert.NotNull(result);
@@ -73,7 +73,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            var result = _interpreter.Interpret(dice);
+            var result = _interpreter.InterpretToResult(dice);
 
             //then
             Assert.NotNull(result);
@@ -89,7 +89,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            var result = _interpreter.Interpret(dice);
+            var result = _interpreter.InterpretToResult(dice);
 
             //then
             Assert.NotNull(result);
@@ -105,7 +105,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            var result = _interpreter.Interpret(dice);
+            var result = _interpreter.InterpretToResult(dice);
 
             //then
             Assert.NotNull(result);
@@ -121,7 +121,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            var result = _interpreter.Interpret(dice);
+            var result = _interpreter.InterpretToResult(dice);
 
             //then
             Assert.NotNull(result);
@@ -137,7 +137,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            var result = _interpreter.Interpret(dice);
+            var result = _interpreter.InterpretToResult(dice);
 
             //then
             Assert.NotNull(result);
@@ -153,7 +153,7 @@ namespace UTs.Executor
 
             //when
             DiceText = string.Join(", ", dice);
-            var result = _interpreter.Interpret(dice);
+            var result = _interpreter.InterpretToResult(dice);
 
             //then
             Assert.NotNull(result);

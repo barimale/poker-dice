@@ -4,7 +4,7 @@ using PokerDiceEngine.Model.Expressions;
 
 namespace PokerDiceEngine.Engine
 {
-    public class PokerDiceInterpreter
+    public class PokerDiceInterpreter: IHandEvaluator
     {
         private readonly HashSet<IExpression> _rules = new() // kolejnosc regul istotna
     {
@@ -18,7 +18,7 @@ namespace PokerDiceEngine.Engine
         new HighDiceExpression()
     };
 
-        public DiceResult? Interpret(int[] dice)
+        public DiceResult? InterpretToResult(int[] dice)
         {
             foreach (var rule in _rules)
             {
@@ -28,6 +28,12 @@ namespace PokerDiceEngine.Engine
             }
 
             return null;
+        }
+
+        public int Interpret(int[] dice)
+        {
+            var result = InterpretToResult(dice);
+            return result?.Result ?? 0;
         }
     }
 
