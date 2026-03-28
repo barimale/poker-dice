@@ -8,7 +8,6 @@
     <File Path="../README.md" />
     <File Path="../Results/resultA.png" />
   </Folder>
-  <Project Path="PokerDice.RL/PokerDice.RL.csproj" Id="5241afac-cc4a-40a5-8772-3de050960941" />
   <Project Path="PokerDice.UI/PokerDice.UI.csproj" Id="8eb168dc-4a61-459a-9ae9-c0966bf4352e">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
