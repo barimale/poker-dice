@@ -1,3 +1,4 @@
+using PokerDice.AI;
 using PokerDice.UI.Features;
 using PokerDiceEngine.Model.Dice;
 using System.Drawing.Text;
@@ -190,6 +191,39 @@ namespace PokerDice.UI
             }
             this.round3Button.Enabled = false;
             button4_Click(sender, e);
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                Console.WriteLine("=== Poker Dice DQN Training ===");
+
+                // 1. Środowisko gry
+                var env = new PokerDiceEnvironment();
+
+                // 2. Sieć Q (ML.NET)
+                int actionCount = 32;
+                var qnet = new MlNetQNetwork(actionCount);
+
+                // 3. Agent DQN
+                var agent = new DqnAgent(
+                    qNetwork: qnet,
+                    actionCount: actionCount,
+                    replayCapacity: 50000,
+                    gamma: 0.99f,
+                    initialEpsilon: 1.0f
+                );
+
+                // 4. Trener
+                var trainer = new Trainer(env, agent);
+
+                // 5. Uruchom trening
+                int episodes = 500000;   // możesz zwiększyć do 2–5 mln
+                trainer.Train(episodes);
+
+                Console.WriteLine("=== Training finished ===");
+            });
         }
     }
 }
