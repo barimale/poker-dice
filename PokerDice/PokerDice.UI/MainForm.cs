@@ -1,5 +1,6 @@
 using PokerDiceEngine.Model.Dice;
 using System.Drawing.Text;
+using PokerDice.UI.Modules;
 
 namespace PokerDice.UI
 {
@@ -17,16 +18,18 @@ namespace PokerDice.UI
             diceFont = new Font(pfc.Families[0], 40f);
         }
 
+        private Color colorAlreadySelected;
         private void Control_MouseEnter(object sender, EventArgs e)
         {
             var c = sender as Control;
-            //c.BackColor = Color./*IndianRed*/;
+            colorAlreadySelected = c.BackColor;
+            c.BackColor = SystemColors.Highlight;
         }
 
         private void Control_MouseLeave(object sender, EventArgs e)
         {
             var c = sender as Control;
-            //c.BackColor = /*SystemColors*/.Control;
+            c.BackColor = colorAlreadySelected;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,88 +40,27 @@ namespace PokerDice.UI
             this.MaximizeBox = false;
             this.startButton.EnabledChanged += (s, ev) =>
             {
-                if (startButton.Enabled)
-                {
-                    startButton.BackColor = Color.Green;
-                    startButton.ForeColor = Color.White;
-                    startButton.Font = new Font(
-                        startButton.Font,
-                        FontStyle.Bold
-                    );
-                }
-                else
-                {
-                    startButton.BackColor = SystemColors.ControlDark;
-                    startButton.ForeColor = SystemColors.ControlText;
-                    startButton.Font = new Font(
-                        startButton.Font,
-                        FontStyle.Regular
-                    );
-                }
+                new MainButtonFeatures(this).ApplyButtonEnabledStyle(startButton, Color.Green, changeFont: true);
             };
 
             this.round2Button.EnabledChanged += (s, ev) =>
             {
-                if (round2Button.Enabled)
-                {
-                    round2Button.BackColor = Color.Green;
-                    round2Button.ForeColor = Color.White;
-                }
-                else
-                {
-                    round2Button.BackColor = SystemColors.ControlDark;
-                    round2Button.ForeColor = SystemColors.ControlText;
-                }
+                new MainButtonFeatures(this).ApplyButtonEnabledStyle(round2Button, Color.Green, changeFont: false);
             };
 
             this.solveButton.EnabledChanged += (s, ev) =>
             {
-                if (solveButton.Enabled)
-                {
-                    solveButton.BackColor = Color.Red;
-                    solveButton.ForeColor = Color.White;
-                    solveButton.Font = new Font(
-                        solveButton.Font,
-                        FontStyle.Bold
-                    );
-                }
-                else
-                {
-                    solveButton.BackColor = SystemColors.ControlDark;
-                    solveButton.ForeColor = SystemColors.ControlText;
-                    solveButton.Font = new Font(
-                        solveButton.Font,
-                        FontStyle.Regular
-                    );
-                }
+                new MainButtonFeatures(this).ApplyButtonEnabledStyle(solveButton, Color.Red, changeFont: true);
             };
 
             this.round3Button.EnabledChanged += (s, ev) =>
             {
-                if (round3Button.Enabled)
-                {
-                    round3Button.BackColor = Color.Green;
-                    round3Button.ForeColor = Color.White;
-                }
-                else
-                {
-                    round3Button.BackColor = SystemColors.ControlDark;
-                    round3Button.ForeColor = SystemColors.ControlText;
-                }
+                new MainButtonFeatures(this).ApplyButtonEnabledStyle(round3Button, Color.Green, changeFont: false);
             };
 
             this.resetButton.EnabledChanged += (s, ev) =>
             {
-                if (resetButton.Enabled)
-                {
-                    resetButton.BackColor = Color.Blue;
-                    resetButton.ForeColor = Color.White;
-                }
-                else
-                {
-                    resetButton.BackColor = SystemColors.ControlDark;
-                    resetButton.ForeColor = SystemColors.ControlText;
-                }
+                new MainButtonFeatures(this).ApplyButtonEnabledStyle(resetButton, Color.Blue, changeFont: false);
             };
 
             this.startButton.Enabled = true;
@@ -137,6 +79,8 @@ namespace PokerDice.UI
                 senderCheckBox.BackColor = Color.Green;
             else
                 senderCheckBox.BackColor = SystemColors.Control;
+
+            colorAlreadySelected = senderCheckBox.BackColor;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -182,6 +126,8 @@ namespace PokerDice.UI
                 senderCheckBox.ForeColor = SystemColors.ControlText;
             }
         }
+
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
