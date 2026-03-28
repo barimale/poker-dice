@@ -1,6 +1,6 @@
+using PokerDice.UI.Features;
 using PokerDiceEngine.Model.Dice;
 using System.Drawing.Text;
-using PokerDice.UI.Modules;
 
 namespace PokerDice.UI
 {

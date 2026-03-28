@@ -1,4 +1,4 @@
-﻿namespace PokerDice.UI.Modules
+﻿namespace PokerDice.UI.Features
 {
     public class MainButtonFeatures
     {
