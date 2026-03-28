@@ -8,8 +8,10 @@ namespace PokerDice.UI
     {
         private PokerDiceEngine.PokerDiceEngine engine = new PokerDiceEngine.PokerDiceEngine();
         private DiceContext context;
-        PrivateFontCollection pfc = new PrivateFontCollection();
-        Font diceFont;
+
+        private PrivateFontCollection pfc = new PrivateFontCollection();
+        private Font diceFont;
+        private Color colorAlreadySelected;
 
         public MainForm()
         {
@@ -18,7 +20,6 @@ namespace PokerDice.UI
             diceFont = new Font(pfc.Families[0], 40f);
         }
 
-        private Color colorAlreadySelected;
         private void Control_MouseEnter(object sender, EventArgs e)
         {
             var c = sender as Control;
