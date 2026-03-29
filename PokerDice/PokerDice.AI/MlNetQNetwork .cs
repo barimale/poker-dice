@@ -14,11 +14,24 @@ namespace PokerDice.AI
 
         public MlNetQNetwork(int actionCount)
         {
-            _ml = new MLContext(seed: 123);
+            _ml = new MLContext(seed: 42);
             _actionCount = actionCount;
 
             BuildInitialModel();
         }
+        public void Save(string path)
+        {
+            using var fs = new FileStream(path, FileMode.Create, FileAccess.Write);
+            _ml.Model.Save(_model, inputSchema: null, stream: fs);
+        }
+
+        public void Load(string path)
+        {
+            using var fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+            _model = _ml.Model.Load(fs, out var schema);
+            _engines = _ml.Model.CreatePredictionEngine<ModelInput, ModelOutputSingle>(_model);
+        }
+
 
         private void BuildInitialModel()
         {

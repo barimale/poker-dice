@@ -41,7 +41,6 @@
             label4 = new Label();
             label5 = new Label();
             resetButton = new Button();
-            button1 = new Button();
             SuspendLayout();
             // 
             // startButton
@@ -159,25 +158,13 @@
             // 
             resetButton.BackColor = Color.Blue;
             resetButton.ForeColor = SystemColors.Control;
-            resetButton.Location = new Point(75, 220);
+            resetButton.Location = new Point(12, 220);
             resetButton.Name = "resetButton";
-            resetButton.Size = new Size(137, 46);
+            resetButton.Size = new Size(200, 46);
             resetButton.TabIndex = 13;
             resetButton.Text = "NEXT GAME";
             resetButton.UseVisualStyleBackColor = false;
             resetButton.Click += resetButton_Click;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Blue;
-            button1.ForeColor = SystemColors.Control;
-            button1.Location = new Point(12, 220);
-            button1.Name = "button1";
-            button1.Size = new Size(57, 46);
-            button1.TabIndex = 14;
-            button1.Text = "AI";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // MainForm
             // 
@@ -185,7 +172,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(675, 274);
-            Controls.Add(button1);
             Controls.Add(resetButton);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -220,6 +206,5 @@
         private Label label4;
         private Label label5;
         private Button resetButton;
-        private Button button1;
     }
 }
