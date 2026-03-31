@@ -1,7 +1,5 @@
 ﻿using Microsoft.ML;
 using PokerDice.AI.DataModel;
-using PokerDice.AI.Training;
-using Microsoft.ML.Data;
 
 namespace PokerDice.AI
 {
@@ -14,7 +12,7 @@ namespace PokerDice.AI
             ml.FallbackToCpu = true;
 
             // Load data
-            var data = ml.Data.LoadFromEnumerable(Training.Training.GenerateTrainingData(1000)); //100_000
+            var data = ml.Data.LoadFromEnumerable(Training.Training.GenerateTrainingData(10_000)); //100_000
 
             // Build pipeline
             var pipeline =
