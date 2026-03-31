@@ -194,6 +194,16 @@ namespace PokerDice.UI
             button4_Click(sender, e);
         }
 
+        private int ObtainRollIndex()
+        {
+            if (round2Button.Enabled == true)
+                return 2;
+            if (round3Button.Enabled == true)
+                return 3;
+
+            return 1;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             var ml = new MLContext(seed: 42);
@@ -211,7 +221,7 @@ namespace PokerDice.UI
                 Die3 = context.Dice[2],
                 Die4 = context.Dice[3],
                 Die5 = context.Dice[4],
-                RollIndex = 3
+                RollIndex = ObtainRollIndex()
             };
 
             var pred = engine.Predict(sample);
