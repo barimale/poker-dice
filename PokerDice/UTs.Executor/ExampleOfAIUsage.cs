@@ -11,10 +11,14 @@ namespace UTs.Executor
         public void Execute()
         {
             //given
-            new CreateModelAndUseIt().Main();
+            var fileName = "r:\\model.zip";
+            File.Delete(fileName);
+
             //when
+            new CreateModelAndUseIt().Main();
 
             //then
+            Assert.True(File.Exists(fileName));
         }
     }
 }
