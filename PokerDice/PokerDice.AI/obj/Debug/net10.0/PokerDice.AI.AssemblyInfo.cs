@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PokerDice.AI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7301f6a29be8666fb31f94b158513d376555308c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5033492930f08b7e948fc5aada0c203142f543db")]
 [assembly: System.Reflection.AssemblyProductAttribute("PokerDice.AI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PokerDice.AI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

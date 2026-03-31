@@ -1,12 +1,10 @@
 ﻿using PokerDice.AI;
+using Vortice.DXGI;
 
 namespace UTs.Executor
 {
     public class ExampleOfAIUsage
     {
-        public string DiceText { get; set; } = string.Empty;
-        public string ResultText { get; set; } = string.Empty;
-
         [Fact]
         public void Execute()
         {
@@ -15,10 +13,32 @@ namespace UTs.Executor
             File.Delete(fileName);
 
             //when
-            new CreateModelAndUseIt().Main();
+            var modelTrainer = new TrainModel();
+            modelTrainer.CreateAndSaveTo(fileName);
 
             //then
             Assert.True(File.Exists(fileName));
+        }
+
+        [Fact]
+        public void RecognizeGPUDevices()
+        {
+            //given
+
+            //when
+            using var factory = DXGI.CreateDXGIFactory1<IDXGIFactory1>();
+
+            uint index = 0;
+            IDXGIAdapter1 adapter;
+
+            while (factory.EnumAdapters1(index, out adapter).Success)
+            {
+                var desc = adapter.Description1;
+                Console.WriteLine($"GPU {index}: {desc.Description} - VRAM: {desc.DedicatedVideoMemory / (1024 * 1024)} MB");
+                index++;
+            }
+
+            //then
         }
     }
 }

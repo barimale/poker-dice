@@ -73,6 +73,8 @@ namespace PokerDice.UI
             this.resetButton.Enabled = false;
             textBox2.Text = "";
             textBox3.Text = "";
+
+            round1Button_Click(sender, e);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

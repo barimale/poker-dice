@@ -5,12 +5,12 @@ using Microsoft.ML.Data;
 
 namespace PokerDice.AI
 {
-    public class CreateModelAndUseIt
+    public class TrainModel
     {
-        public void Main()
+        public void CreateAndSaveTo(string path)
         {
             var ml = new MLContext(seed: 42);
-            ml.GpuDeviceId = null; // ensure CPU
+            ml.GpuDeviceId = 0;
             ml.FallbackToCpu = true;
 
             // Load data
@@ -27,14 +27,14 @@ namespace PokerDice.AI
                       nameof(DiceState.Die4),
                       nameof(DiceState.Die5),
                       nameof(DiceState.RollIndex)))
-                  .Append(ml.MulticlassClassification.Trainers.LbfgsMaximumEntropy(
+                  .Append(ml.MulticlassClassification.Trainers.SdcaMaximumEntropy(
                       labelColumnName: "Label",
                       featureColumnName: "Features"))
                   .Append(ml.Transforms.Conversion.MapKeyToValue("PredictedAction", "PredictedLabel"));
 
             var model = pipeline.Fit(data);
 
-            ml.Model.Save(model, data.Schema, "r:\\model.zip");
+            ml.Model.Save(model, data.Schema, path);
         }
     }
 }
