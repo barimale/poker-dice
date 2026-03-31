@@ -12,9 +12,9 @@ namespace PokerDice.AI
             var ml = new MLContext(seed: 42);
             ml.GpuDeviceId = null; // ensure CPU
             ml.FallbackToCpu = true;
-            //ml./*MaxThreads*/ = Environment.ProcessorCount;
+
             // Load data
-            var data = ml.Data.LoadFromEnumerable(Training.Training.GenerateTrainingData(10000)); //100_000
+            var data = ml.Data.LoadFromEnumerable(Training.Training.GenerateTrainingData(1000)); //100_000
 
             // Build pipeline
             var pipeline =
@@ -35,25 +35,6 @@ namespace PokerDice.AI
             var model = pipeline.Fit(data);
 
             ml.Model.Save(model, data.Schema, "r:\\model.zip");
-
-            // Prediction engine
-            // Define DataViewSchema and ITransformers
-            DataViewSchema modelSchema;
-            ITransformer trainedModel = ml.Model.Load("r:\\model.zip", out modelSchema);
-
-            var engine = ml.Model.CreatePredictionEngine<DiceState, DiceActionPrediction>(trainedModel); // model
-            var sample = new DiceState
-            {
-                Die1 = 2,
-                Die2 = 4,
-                Die3 = 3,
-                Die4 = 5,
-                Die5 = 6,
-                RollIndex = 3
-            };
-
-            var pred = engine.Predict(sample);
-            Console.WriteLine($"Action: {pred.PredictedAction}");
         }
     }
 }

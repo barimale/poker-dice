@@ -240,7 +240,7 @@ namespace PokerDice.UI
                         {
                             checkBox.FlatStyle = FlatStyle.Flat;
                             checkBox.FlatAppearance.BorderSize = 5;
-                            checkBox.FlatAppearance.BorderColor = Color.Gold;
+                            checkBox.FlatAppearance.BorderColor = Color.Fuchsia;
                         }
                         else // "K"
                         {

@@ -19,7 +19,7 @@ namespace PokerDice.AI.Training
             for (int i = 0; i < samples; i++)
             {
                 var dice = engine.SourceGenerator.Generate().Dice;
-                var rollIndex = engine.SourceGenerator.GenerateRollIndex();
+                var rollIndex = 1; // engine.SourceGenerator.GenerateRollIndex();
 
                 // Your existing heuristic / dynamic programming / EV calc:
                 // Decide best mask for this state, e.g. "KRRRK"
