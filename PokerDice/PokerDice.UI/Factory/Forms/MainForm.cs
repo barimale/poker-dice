@@ -208,52 +208,59 @@ namespace PokerDice.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var ml = new MLContext(seed: 42);
-
-            // Prediction engine
-            // Define DataViewSchema and ITransformers
-            DataViewSchema modelSchema;
-            ITransformer trainedModel = ml.Model.Load("r:\\model.zip", out modelSchema);
-
-            var engine = ml.Model.CreatePredictionEngine<DiceState, DiceActionPrediction>(trainedModel); // model
-            var sample = new DiceState
+            try
             {
-                Die1 = context.Dice[0],
-                Die2 = context.Dice[1],
-                Die3 = context.Dice[2],
-                Die4 = context.Dice[3],
-                Die5 = context.Dice[4],
-                RollIndex = ObtainRollIndex()
-            };
+                var ml = new MLContext(seed: 42);
 
-            var pred = engine.Predict(sample);
-            if(pred.PredictedAction == "KKKKK")
-            {
-                button4_Click(sender, e);
-            }else
-            {
-                var index = 0;
-                foreach(var suggestion in pred.PredictedAction.ToCharArray())
+                // Prediction engine
+                // Define DataViewSchema and ITransformers
+                DataViewSchema modelSchema;
+                ITransformer trainedModel = ml.Model.Load("r:\\model.zip", out modelSchema);
+
+                var engine = ml.Model.CreatePredictionEngine<DiceState, DiceActionPrediction>(trainedModel); // model
+                var sample = new DiceState
                 {
-                    var checkBox = dicesPanel.Controls.OfType<CheckBox>().FirstOrDefault(c => c.Name == index.ToString());
-                    if (checkBox != null)
-                    {
-                        if (suggestion == 'R')
-                        {
-                            checkBox.FlatStyle = FlatStyle.Flat;
-                            checkBox.FlatAppearance.BorderSize = 5;
-                            checkBox.FlatAppearance.BorderColor = Color.Fuchsia;
-                        }
-                        else // "K"
-                        {
-                            checkBox.FlatStyle = FlatStyle.Standard;
-                            checkBox.FlatAppearance.BorderSize = 1;
-                            checkBox.FlatAppearance.BorderColor = SystemColors.ControlDark;
-                        }
-                    }
+                    Die1 = context.Dice[0],
+                    Die2 = context.Dice[1],
+                    Die3 = context.Dice[2],
+                    Die4 = context.Dice[3],
+                    Die5 = context.Dice[4],
+                    RollIndex = ObtainRollIndex()
+                };
 
-                    index += 1;
+                var pred = engine.Predict(sample);
+                if (pred.PredictedAction == "KKKKK")
+                {
+                    button4_Click(sender, e);
                 }
+                else
+                {
+                    var index = 0;
+                    foreach (var suggestion in pred.PredictedAction.ToCharArray())
+                    {
+                        var checkBox = dicesPanel.Controls.OfType<CheckBox>().FirstOrDefault(c => c.Name == index.ToString());
+                        if (checkBox != null)
+                        {
+                            if (suggestion == 'R')
+                            {
+                                checkBox.FlatStyle = FlatStyle.Flat;
+                                checkBox.FlatAppearance.BorderSize = 5;
+                                checkBox.FlatAppearance.BorderColor = Color.Fuchsia;
+                            }
+                            else // "K"
+                            {
+                                checkBox.FlatStyle = FlatStyle.Standard;
+                                checkBox.FlatAppearance.BorderSize = 1;
+                                checkBox.FlatAppearance.BorderColor = SystemColors.ControlDark;
+                            }
+                        }
+
+                        index += 1;
+                    }
+                }
+            }catch(Exception ex)
+            {
+
             }
         }
     }
