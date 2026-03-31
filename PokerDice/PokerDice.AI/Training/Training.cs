@@ -45,7 +45,7 @@ namespace PokerDice.AI.Training
             return result.Result;
         }
 
-        public static double ExpectedValue(int[] dice, string mask, int rollIndex, int simulations = 1) // 2000
+        public static double ExpectedValue(int[] dice, string mask, int rollIndex, int simulations = 2) // 2000
         {
             var rnd = new Random();
             int total = 0;
