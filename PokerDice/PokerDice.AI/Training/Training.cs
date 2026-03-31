@@ -13,7 +13,6 @@ namespace PokerDice.AI.Training
                     .Replace('1', 'R')) // reroll
                 .ToArray();
 
-        // WIP dolozyc logike z pokerDice
         public static IEnumerable<DiceState> GenerateTrainingData(int samples)
         {
             var rnd = new Random();

@@ -14,7 +14,7 @@ namespace PokerDice.AI
             ml.FallbackToCpu = true;
             //ml./*MaxThreads*/ = Environment.ProcessorCount;
             // Load data
-            var data = ml.Data.LoadFromEnumerable(Training.Training.GenerateTrainingData(1000)); //100_000
+            var data = ml.Data.LoadFromEnumerable(Training.Training.GenerateTrainingData(10000)); //100_000
 
             // Build pipeline
             var pipeline =
