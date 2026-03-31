@@ -1,0 +1,16 @@
+R:\poker-dice\PokerDice\PokerDice.AI\bin\Release\net10.0\PokerDice.AI.deps.json
+R:\poker-dice\PokerDice\PokerDice.AI\bin\Release\net10.0\PokerDice.AI.dll
+R:\poker-dice\PokerDice\PokerDice.AI\bin\Release\net10.0\PokerDice.AI.pdb
+R:\poker-dice\PokerDice\PokerDice.AI\bin\Release\net10.0\PokerDiceEngine.dll
+R:\poker-dice\PokerDice\PokerDice.AI\bin\Release\net10.0\PokerDiceEngine.pdb
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\PokerDice.AI.csproj.AssemblyReference.cache
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\PokerDice.AI.GeneratedMSBuildEditorConfig.editorconfig
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\PokerDice.AI.AssemblyInfoInputs.cache
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\PokerDice.AI.AssemblyInfo.cs
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\PokerDice.AI.csproj.CoreCompileInputs.cache
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\PokerDice.AI.sourcelink.json
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\PokerDic.2FB4DF3F.Up2Date
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\PokerDice.AI.dll
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\refint\PokerDice.AI.dll
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\PokerDice.AI.pdb
+R:\poker-dice\PokerDice\PokerDice.AI\obj\Release\net10.0\ref\PokerDice.AI.dll

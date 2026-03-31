@@ -19,5 +19,10 @@ namespace PokerDiceEngine.Model
         {
             return _rng.Next(1, 7);
         }
+
+        public int GenerateRollIndex()
+        {
+            return _rng.Next(1, 4);
+        }
     }
 }
