@@ -14,12 +14,20 @@ namespace PokerDice.UI
         private PrivateFontCollection pfc = new PrivateFontCollection();
         private Font diceFont;
         private Color colorAlreadySelected;
-
+        PredictionEngine<DiceState, DiceActionPrediction> aiEngine;
         public MainForm()
         {
             InitializeComponent();
             pfc.AddFontFile(@".\Resources\DpolyBlockDice.ttf");
             diceFont = new Font(pfc.Families[0], 40f);
+            var ml = new MLContext(seed: 42);
+
+            // Prediction engine
+            // Define DataViewSchema and ITransformers
+            DataViewSchema modelSchema;
+            ITransformer trainedModel = ml.Model.Load("r:\\model.zip", out modelSchema);
+
+            aiEngine = ml.Model.CreatePredictionEngine<DiceState, DiceActionPrediction>(trainedModel); // model
         }
 
         private void Control_MouseEnter(object sender, EventArgs e)
@@ -210,14 +218,6 @@ namespace PokerDice.UI
         {
             try
             {
-                var ml = new MLContext(seed: 42);
-
-                // Prediction engine
-                // Define DataViewSchema and ITransformers
-                DataViewSchema modelSchema;
-                ITransformer trainedModel = ml.Model.Load("r:\\model.zip", out modelSchema);
-
-                var engine = ml.Model.CreatePredictionEngine<DiceState, DiceActionPrediction>(trainedModel); // model
                 var sample = new DiceState
                 {
                     Die1 = context.Dice[0],
@@ -228,7 +228,7 @@ namespace PokerDice.UI
                     RollIndex = ObtainRollIndex()
                 };
 
-                var pred = engine.Predict(sample);
+                var pred = aiEngine.Predict(sample);
                 if (pred.PredictedAction == "KKKKK")
                 {
                     button4_Click(sender, e);
