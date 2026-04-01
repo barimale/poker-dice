@@ -214,6 +214,7 @@ namespace PokerDice.UI
             return 1;
         }
 
+        private string PredictedAction = string.Empty;
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -225,10 +226,13 @@ namespace PokerDice.UI
                     Die3 = context.Dice[2],
                     Die4 = context.Dice[3],
                     Die5 = context.Dice[4],
-                    RollIndex = ObtainRollIndex()
+                    RollIndex = ObtainRollIndex(),
+                    //Action = PredictedAction // WIP moze bez tego 
                 };
 
                 var pred = aiEngine.Predict(sample);
+                PredictedAction = pred.PredictedAction;
+
                 if (pred.PredictedAction == "KKKKK")
                 {
                     button4_Click(sender, e);
