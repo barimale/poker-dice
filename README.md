@@ -4,4 +4,4 @@ z asystentem AI.
 
 # Przykłady użycia
 ![resultA.png](./Results/resultA.png)
-![resultB.png](./Results/resultB.png)
+![resultB.bmp](./Results/resultB.bmp)
