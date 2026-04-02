@@ -19,9 +19,8 @@ namespace PokerDice.AI.Training
             for (int i = 0; i < samples; i++)
             {
                 var dice = engine.SourceGenerator.Generate().Dice;
-                var rollIndex = 1; // engine.SourceGenerator.GenerateRollIndex();
+                var rollIndex = engine.SourceGenerator.GenerateRollIndex();
 
-                // Your existing heuristic / dynamic programming / EV calc:
                 // Decide best mask for this state, e.g. "KRRRK"
                 string bestAction = ComputeBestAction(dice, rollIndex);
 
@@ -45,7 +44,7 @@ namespace PokerDice.AI.Training
             return result.Result;
         }
 
-        public static double ExpectedValue(int[] dice, string mask, int rollIndex, int simulations = 2) // 2000
+        public static double ExpectedValue(int[] dice, string mask, int rollIndex, int simulations = 2000)
         {
             var rnd = new Random();
             int total = 0;
