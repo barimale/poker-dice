@@ -8,11 +8,11 @@ namespace PokerDice.AI
         public void CreateAndSaveTo(string path)
         {
             var ml = new MLContext(seed: 42);
-            ml.GpuDeviceId = null; // 0;
+            ml.GpuDeviceId = 0; // 0;
             ml.FallbackToCpu = true;
 
             // Load data
-            var data = ml.Data.LoadFromEnumerable(Training.Training.GenerateTrainingData(10_000)); //100_000
+            var data = ml.Data.LoadFromEnumerable(new Training.Training().GenerateTrainingData(10_000)); //100_000
 
             // Build pipeline
             var pipeline =

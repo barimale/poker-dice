@@ -1,22 +1,24 @@
 ﻿using PokerDice.AI.DataModel;
+using System.Collections.Concurrent;
 
 namespace PokerDice.AI.Training
 {
     public class Training
     {
-        private static PokerDiceEngine.PokerDiceEngine engine = new PokerDiceEngine.PokerDiceEngine();
+        private PokerDiceEngine.PokerDiceEngine engine = new PokerDiceEngine.PokerDiceEngine();
 
-        public static readonly string[] AllMasks =
+        public readonly string[] AllMasks =
             Enumerable.Range(0, 32)
                 .Select(i => Convert.ToString(i, 2).PadLeft(5, '0')
                     .Replace('0', 'K') // keep
                     .Replace('1', 'R')) // reroll
                 .ToArray();
 
-        public static IEnumerable<DiceState> GenerateTrainingData(int samples)
+        public IEnumerable<DiceState> GenerateTrainingData(int samples)
         {
-            var rnd = new Random();
-            for (int i = 0; i < samples; i++)
+            ConcurrentBag<DiceState> total = new ConcurrentBag<DiceState>();
+
+            Parallel.For(0, samples, i =>
             {
                 var dice = engine.SourceGenerator.Generate().Dice;
                 var rollIndex = engine.SourceGenerator.GenerateRollIndex();
@@ -24,7 +26,7 @@ namespace PokerDice.AI.Training
                 // Decide best mask for this state, e.g. "KRRRK"
                 string bestAction = ComputeBestAction(dice, rollIndex);
 
-                yield return new DiceState
+                total.Add(new DiceState
                 {
                     Die1 = dice[0],
                     Die2 = dice[1],
@@ -33,23 +35,24 @@ namespace PokerDice.AI.Training
                     Die5 = dice[4],
                     RollIndex = rollIndex,
                     Action = bestAction
-                };
-            }
+                });
+            });
+
+            return total.AsEnumerable();
         }
 
-        public static int Score(int[] dice)
+        public int Score(int[] dice)
         {
             var result = engine.Interpreter.InterpretToResult(dice);
 
             return result.Result;
         }
 
-        public static double ExpectedValue(int[] dice, string mask, int rollIndex, int simulations = 2000)
+        public double ExpectedValue(int[] dice, string mask, int rollIndex, int simulations = 10) // 2000
         {
-            var rnd = new Random();
-            int total = 0;
+            ConcurrentBag<int> total = new ConcurrentBag<int>();
 
-            for (int i = 0; i < simulations; i++)
+            Parallel.For(0, simulations, i =>
             {
                 var d = dice.ToArray();
 
@@ -65,35 +68,34 @@ namespace PokerDice.AI.Training
                 {
                     // Greedy: pick best mask for next roll
                     string nextMask = ComputeBestAction(d, rollIndex + 1);
-                    total += (int)ExpectedValue(d, nextMask, rollIndex + 1, 1);
+                    var scoretotal = (int)ExpectedValue(d, nextMask, rollIndex + 1, 1);
+                    total.Add(scoretotal);
                 }
                 else
                 {
-                    total += Score(d);
+                    total.Add(Score(d));
                 }
-            }
+            });
 
-            return (double)total / simulations;
+            return (double)total.Sum() / simulations;
         }
 
+        private record ComputeMask(double bestValue, string bestMask);
 
-        private static string ComputeBestAction(int[] dice, int rollIndex)
+        private string ComputeBestAction(int[] dice, int rollIndex)
         {
-            double bestValue = double.NegativeInfinity;
-            string bestMask = "KKKKK"; // default: keep all
+            ConcurrentBag<ComputeMask> results = new ConcurrentBag<ComputeMask>()
+            {
+                new ComputeMask(double.NegativeInfinity, "KKKKK") // baseline: keep all
+            };
 
-            foreach (var mask in AllMasks)
+            AllMasks.AsParallel().ForAll(mask =>
             {
                 double ev = ExpectedValue(dice, mask, rollIndex);
+                results.Add(new ComputeMask(ev, mask));
+            });
 
-                if (ev > bestValue)
-                {
-                    bestValue = ev;
-                    bestMask = mask;
-                }
-            }
-
-            return bestMask;
+            return results.MaxBy(p => p.bestValue).bestMask;
         }
     }
 }
