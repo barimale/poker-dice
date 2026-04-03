@@ -9,7 +9,7 @@ namespace PokerDice.AI.Training
 
         public Action<double, string> OnIterateChange;
 
-        public readonly string[] AllMasks =
+        private readonly string[] AllMasks =
             Enumerable.Range(0, 32)
                 .Select(i => Convert.ToString(i, 2).PadLeft(5, '0')
                     .Replace('0', 'K') // keep
@@ -22,7 +22,7 @@ namespace PokerDice.AI.Training
 
             Parallel.For(0, samples, new ParallelOptions
             {
-                MaxDegreeOfParallelism = Environment.ProcessorCount
+                MaxDegreeOfParallelism = 1 //Environment.ProcessorCount
             }, i =>
             {
                 var dice = engine.SourceGenerator.Generate().Dice;
@@ -107,7 +107,7 @@ namespace PokerDice.AI.Training
                 },
                 (mask =>
             {
-                double ev = ExpectedValue(dice, mask, rollIndex);
+                double ev = ExpectedValue(dice, mask, rollIndex); // Monte Carlo here
                 results.Add(new ComputeMask(ev, mask));
             }));
 
