@@ -99,11 +99,17 @@ namespace PokerDice.AI.Training
                 new ComputeMask(double.NegativeInfinity, "KKKKK") // baseline: keep all
             };
 
-            AllMasks.AsParallel().ForAll(mask =>
+            Parallel.ForEach(
+                AllMasks,
+                new ParallelOptions
+                {
+                    MaxDegreeOfParallelism = Environment.ProcessorCount
+                },
+                (mask =>
             {
                 double ev = ExpectedValue(dice, mask, rollIndex);
                 results.Add(new ComputeMask(ev, mask));
-            });
+            }));
 
             return results.MaxBy(p => p.bestValue).bestMask;
         }
