@@ -7,7 +7,7 @@ namespace PokerDice.AI
     {
         public Action<double, string> OnIterateChange;
 
-        public void CreateAndSaveTo(string path)
+        public void CreateAndSaveTo(int samples, string path)
         {
             var ml = new MLContext(seed: 42);
             ml.GpuDeviceId = null; // 0;
@@ -16,7 +16,7 @@ namespace PokerDice.AI
             // Load data
             var training = new Training.Training();
             training.OnIterateChange += OnIterateChange;
-            var data = ml.Data.LoadFromEnumerable(training.GenerateTrainingData(1));// 3*60*14)); //10h // 100_000
+            var data = ml.Data.LoadFromEnumerable(training.GenerateTrainingData(samples));// 3*60*14)); //10h // 100_000
 
             // Build pipeline
             var pipeline =

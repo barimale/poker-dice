@@ -77,7 +77,7 @@ namespace PokerDice.AI.Training
                 if (rollIndex < 3)
                 {
                     // Greedy: pick best mask for next roll
-                    string nextMask = ComputeBestAction(d, rollIndex + 1);
+                    string nextMask = ComputeBestAction(d, rollIndex + 1, 1);
                     var scoretotal = (int)ExpectedValue(d, nextMask, rollIndex + 1, 1);
                     total.Add(scoretotal);
                 }
@@ -92,7 +92,7 @@ namespace PokerDice.AI.Training
 
         private record ComputeMask(double bestValue, string bestMask);
 
-        private string ComputeBestAction(int[] dice, int rollIndex)
+        private string ComputeBestAction(int[] dice, int rollIndex, int simulations = 100)
         {
             ConcurrentBag<ComputeMask> results = new ConcurrentBag<ComputeMask>()
             {
@@ -107,7 +107,7 @@ namespace PokerDice.AI.Training
                 },
                 (mask =>
             {
-                double ev = ExpectedValue(dice, mask, rollIndex); // Monte Carlo here
+                double ev = ExpectedValue(dice, mask, rollIndex, simulations); // Monte Carlo here
                 results.Add(new ComputeMask(ev, mask));
             }));
 

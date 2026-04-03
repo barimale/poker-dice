@@ -30,7 +30,7 @@ namespace UTs.Executor
             {
                 Output.WriteLine($"Iteration {i}, best action: {bestAction}");
             };
-            modelTrainer.CreateAndSaveTo(fileName);
+            modelTrainer.CreateAndSaveTo(10_000, fileName);
 
             //then
             Assert.True(File.Exists(fileName));
