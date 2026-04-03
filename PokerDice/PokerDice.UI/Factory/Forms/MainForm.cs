@@ -74,11 +74,17 @@ namespace PokerDice.UI
                 new MainButtonFeatures(this).ApplyButtonEnabledStyle(resetButton, Color.Blue, changeFont: false);
             };
 
+            this.button1.EnabledChanged += (s, ev) =>
+            {
+                new MainButtonFeatures(this).ApplyButtonEnabledStyle(button1, Color.Fuchsia, changeFont: false);
+            };
+
             this.startButton.Enabled = true;
             this.round2Button.Enabled = false;
             this.round3Button.Enabled = false;
             this.solveButton.Enabled = false;
             this.resetButton.Enabled = false;
+            this.button1.Enabled = true;
             textBox2.Text = "";
             textBox3.Text = "";
 
@@ -148,6 +154,7 @@ namespace PokerDice.UI
             solveButton.Enabled = false;
             round2Button.Enabled = false;
             round3Button.Enabled = false;
+            button1.Enabled = false;
 
             foreach (var checkbox in dicesPanel.Controls.OfType<CheckBox>())
             {
@@ -207,11 +214,11 @@ namespace PokerDice.UI
         private int ObtainRollIndex()
         {
             if (round2Button.Enabled == true)
-                return 2;
+                return 1;
             if (round3Button.Enabled == true)
-                return 3;
+                return 2;
 
-            return 1;
+            return 0;
         }
 
         private string PredictedAction = string.Empty;
@@ -227,7 +234,6 @@ namespace PokerDice.UI
                     Die4 = context.Dice[3],
                     Die5 = context.Dice[4],
                     RollIndex = ObtainRollIndex(),
-                    //Action = PredictedAction // WIP moze bez tego 
                 };
 
                 var pred = aiEngine.Predict(sample);

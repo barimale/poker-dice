@@ -31,7 +31,7 @@ namespace PokerDice.AI.Training
                 // Decide best mask for this state, e.g. "KRRRK"
                 string bestAction = ComputeBestAction(dice, rollIndex);
 
-                OnIterateChange?.Invoke((double)i / samples * 100, bestAction);
+                OnIterateChange?.Invoke((double)i, bestAction);
 
                 total.Add(new DiceState
                 {
@@ -55,7 +55,7 @@ namespace PokerDice.AI.Training
             return result.Result;
         }
 
-        public double ExpectedValue(int[] dice, string mask, int rollIndex, int simulations = 10) // 2000
+        public double ExpectedValue(int[] dice, string mask, int rollIndex, int simulations = 100) // 2000
         {
             ConcurrentBag<int> total = new ConcurrentBag<int>();
 

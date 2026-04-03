@@ -28,11 +28,11 @@ namespace UTs.Executor
 
             //when
             var modelTrainer = new TrainModel();
-            modelTrainer.CreateAndSaveTo(fileName);
             modelTrainer.OnIterateChange += (i, bestAction) =>
             {
                 Output.WriteLine($"Iteration {i}, best action: {bestAction}");
             };
+            modelTrainer.CreateAndSaveTo(fileName);
 
             //then
             Assert.True(File.Exists(fileName));
