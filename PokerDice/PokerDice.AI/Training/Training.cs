@@ -7,7 +7,7 @@ namespace PokerDice.AI.Training
     {
         private PokerDiceEngine.PokerDiceEngine engine = new PokerDiceEngine.PokerDiceEngine();
 
-        public Action<int, string> OnIterateChange;
+        public Action<double, string> OnIterateChange;
 
         public readonly string[] AllMasks =
             Enumerable.Range(0, 32)
@@ -31,7 +31,7 @@ namespace PokerDice.AI.Training
                 // Decide best mask for this state, e.g. "KRRRK"
                 string bestAction = ComputeBestAction(dice, rollIndex);
 
-                OnIterateChange?.Invoke(i, bestAction);
+                OnIterateChange?.Invoke((double)i / samples * 100, bestAction);
 
                 total.Add(new DiceState
                 {

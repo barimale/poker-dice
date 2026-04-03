@@ -5,7 +5,7 @@ namespace PokerDice.AI
 {
     public class TrainModel
     {
-        public Action<int, string> OnIterateChange;
+        public Action<double, string> OnIterateChange;
 
         public void CreateAndSaveTo(string path)
         {
