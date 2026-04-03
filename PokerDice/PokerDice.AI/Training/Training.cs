@@ -18,7 +18,10 @@ namespace PokerDice.AI.Training
         {
             ConcurrentBag<DiceState> total = new ConcurrentBag<DiceState>();
 
-            Parallel.For(0, samples, i =>
+            Parallel.For(0, samples, new ParallelOptions
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount
+            }, i =>
             {
                 var dice = engine.SourceGenerator.Generate().Dice;
                 var rollIndex = engine.SourceGenerator.GenerateRollIndex();
@@ -52,7 +55,10 @@ namespace PokerDice.AI.Training
         {
             ConcurrentBag<int> total = new ConcurrentBag<int>();
 
-            Parallel.For(0, simulations, i =>
+            Parallel.For(0, simulations, new ParallelOptions
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount
+            }, i =>
             {
                 var d = dice.ToArray();
 

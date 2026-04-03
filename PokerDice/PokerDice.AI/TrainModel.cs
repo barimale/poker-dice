@@ -8,7 +8,7 @@ namespace PokerDice.AI
         public void CreateAndSaveTo(string path)
         {
             var ml = new MLContext(seed: 42);
-            ml.GpuDeviceId = 0; // 0;
+            ml.GpuDeviceId = null; // 0;
             ml.FallbackToCpu = true;
 
             // Load data
