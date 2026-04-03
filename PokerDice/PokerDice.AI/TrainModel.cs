@@ -5,6 +5,8 @@ namespace PokerDice.AI
 {
     public class TrainModel
     {
+        public Action<int, string> OnIterateChange;
+
         public void CreateAndSaveTo(string path)
         {
             var ml = new MLContext(seed: 42);
@@ -12,7 +14,9 @@ namespace PokerDice.AI
             ml.FallbackToCpu = true;
 
             // Load data
-            var data = ml.Data.LoadFromEnumerable(new Training.Training().GenerateTrainingData(10_000)); //100_000
+            var training = new Training.Training();
+            training.OnIterateChange += OnIterateChange;
+            var data = ml.Data.LoadFromEnumerable(training.GenerateTrainingData(100)); //100_000
 
             // Build pipeline
             var pipeline =
