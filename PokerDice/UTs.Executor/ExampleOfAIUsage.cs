@@ -17,7 +17,6 @@ namespace UTs.Executor
             Console.SetOut(_redirectWriter);
         }
 
-
         [Fact]
         public void Execute()
         {

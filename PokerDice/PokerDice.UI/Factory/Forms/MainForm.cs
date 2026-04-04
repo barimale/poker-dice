@@ -228,7 +228,6 @@ namespace PokerDice.UI
             return 0;
         }
 
-        private string PredictedAction = string.Empty;
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -244,7 +243,6 @@ namespace PokerDice.UI
                 };
 
                 var pred = aiEngine.Predict(sample);
-                PredictedAction = pred.PredictedAction;
 
                 if (pred.PredictedAction == "KKKKK")
                 {

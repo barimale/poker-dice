@@ -16,7 +16,7 @@
   <Project Path="PokerDice/PokerDiceEngine.csproj">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="UTs.Executor/UTs.Executor.csproj">
+  <Project Path="UTs.Executor/PokerDice.UTs.csproj">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
 </Solution>
