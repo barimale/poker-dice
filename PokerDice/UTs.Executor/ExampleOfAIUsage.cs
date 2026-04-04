@@ -2,6 +2,7 @@
 using UTs.Executor.BaseUT;
 using Vortice.DXGI;
 using Xunit.Abstractions;
+using Xunit.Extensions;
 
 namespace UTs.Executor
 {
@@ -28,7 +29,16 @@ namespace UTs.Executor
             var modelTrainer = new TrainModel();
             modelTrainer.OnIterateChange += (i, bestAction) =>
             {
-                Output.WriteLine($"Iteration {i}, best action: {bestAction}");
+                try
+                {
+                    Console.WriteLine($"Iteration {i}, best action: {bestAction}");
+                    var line = $"Iteration {i}, best action: {bestAction}";
+                    File.AppendAllText("r:\\training_log.txt", line + Environment.NewLine);
+                }
+                catch (Exception)
+                {
+                    Output.WriteLine("Failed to write to log file.");
+                }
             };
             modelTrainer.CreateAndSaveTo(10_000, fileName);
 

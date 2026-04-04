@@ -22,7 +22,7 @@ namespace PokerDice.AI.Training
 
             Parallel.For(0, samples, new ParallelOptions
             {
-                MaxDegreeOfParallelism = 1 //Environment.ProcessorCount
+                MaxDegreeOfParallelism = Environment.ProcessorCount
             }, i =>
             {
                 var dice = engine.SourceGenerator.Generate().Dice;
