@@ -25,9 +25,16 @@ namespace PokerDice.UI
             // Prediction engine
             // Define DataViewSchema and ITransformers
             DataViewSchema modelSchema;
-            ITransformer trainedModel = ml.Model.Load("r:\\model.zip", out modelSchema);
+            try
+            {
+                ITransformer trainedModel = ml.Model.Load("r:\\model.zip", out modelSchema);
 
-            aiEngine = ml.Model.CreatePredictionEngine<DiceState, DiceActionPrediction>(trainedModel); // model
+                aiEngine = ml.Model.CreatePredictionEngine<DiceState, DiceActionPrediction>(trainedModel); // model
+            }
+            catch (Exception)
+            { 
+                // intentionally left blank
+            }
         }
 
         private void Control_MouseEnter(object sender, EventArgs e)
