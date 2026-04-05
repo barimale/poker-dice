@@ -286,7 +286,7 @@ namespace PokerDice.UI
                         index += 1;
                     }
                 }
-            }catch(Exception ex)
+            }catch(Exception)
             {
                 // intentionally left blank
             }
