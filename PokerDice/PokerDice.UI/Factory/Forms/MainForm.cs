@@ -263,7 +263,7 @@ namespace PokerDice.UI
                 }
                 else
                 {
-                    var index = 0;
+                    var index = 1;
                     foreach (var suggestion in pred.PredictedAction.ToCharArray())
                     {
                         var checkBox = dicesPanel.Controls.OfType<CheckBox>().FirstOrDefault(c => c.Name == index.ToString());
@@ -288,7 +288,7 @@ namespace PokerDice.UI
                 }
             }catch(Exception ex)
             {
-
+                // intentionally left blank
             }
         }
     }

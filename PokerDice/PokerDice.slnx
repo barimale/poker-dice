@@ -8,6 +8,7 @@
     <File Path="../model.zip" />
     <File Path="../README.md" />
     <File Path="../Results/resultA.png" />
+    <File Path="../Results/resultB.bmp" />
   </Folder>
   <Project Path="PokerDice.AI/PokerDice.AI.csproj" Id="f6091fe6-ec51-470e-9a4e-918231dcee7c" />
   <Project Path="PokerDice.UI/PokerDice.UI.csproj" Id="8eb168dc-4a61-459a-9ae9-c0966bf4352e">
