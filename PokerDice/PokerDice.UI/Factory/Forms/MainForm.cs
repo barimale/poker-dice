@@ -3,6 +3,8 @@ using PokerDice.AI.DataModel;
 using PokerDice.UI.Features;
 using PokerDiceEngine.Model.Dice;
 using System.Drawing.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using CheckBox = System.Windows.Forms.CheckBox;
 
 namespace PokerDice.UI
 {
@@ -84,6 +86,15 @@ namespace PokerDice.UI
             this.button1.EnabledChanged += (s, ev) =>
             {
                 new MainButtonFeatures(this).ApplyButtonEnabledStyle(button1, Color.Fuchsia, changeFont: false);
+                if (button1.Enabled == false)
+                {
+                    foreach (var checkBox in dicesPanel.Controls.OfType<CheckBox>())
+                    {
+                        checkBox.FlatStyle = FlatStyle.Standard;
+                        checkBox.FlatAppearance.BorderSize = 1;
+                        checkBox.FlatAppearance.BorderColor = SystemColors.ControlDark;
+                    }
+                }
             };
 
             this.startButton.Enabled = true;
