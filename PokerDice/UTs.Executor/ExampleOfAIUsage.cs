@@ -21,8 +21,8 @@ namespace UTs.Executor
         public void Execute()
         {
             //given
-            var fileName = "r:\\model.zip";
-            var logFileName = "r:\\training_log.txt";
+            var fileName = "r:\\model-XL.zip";
+            var logFileName = "r:\\training_log-XL.txt";
             var amountOfIterations = 200_000;
             File.Delete(fileName);
             File.Delete(logFileName);
