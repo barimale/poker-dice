@@ -3,7 +3,6 @@ using PokerDice.AI.DataModel;
 using PokerDice.UI.Features;
 using PokerDiceEngine.Model.Dice;
 using System.Drawing.Text;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using CheckBox = System.Windows.Forms.CheckBox;
 
 namespace PokerDice.UI
