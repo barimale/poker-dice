@@ -9,13 +9,16 @@ namespace PokerDice.UI
 {
     public partial class MainForm : Form
     {
-        public PokerDiceEngine.PokerDiceEngine engine = new PokerDiceEngine.PokerDiceEngine();
-        public DiceContext context;
+        private const string ModelPath = "r:\\model.zip";
 
         private PrivateFontCollection pfc = new PrivateFontCollection();
         private Font diceFont;
         private Color colorAlreadySelected;
-        PredictionEngine<DiceState, DiceActionPrediction> aiEngine;
+        private PredictionEngine<DiceState, DiceActionPrediction> aiEngine;
+
+        public PokerDiceEngine.PokerDiceEngine engine = new PokerDiceEngine.PokerDiceEngine();
+        public DiceContext context;
+
         public MainForm()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace PokerDice.UI
             DataViewSchema modelSchema;
             try
             {
-                ITransformer trainedModel = ml.Model.Load("r:\\model.zip", out modelSchema);
+                ITransformer trainedModel = ml.Model.Load(ModelPath, out modelSchema);
 
                 aiEngine = ml.Model.CreatePredictionEngine<DiceState, DiceActionPrediction>(trainedModel); // model
             }
