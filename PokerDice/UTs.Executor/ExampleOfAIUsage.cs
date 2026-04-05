@@ -1,8 +1,8 @@
 ﻿using PokerDice.AI;
+using System.Runtime;
 using UTs.Executor.BaseUT;
 using Vortice.DXGI;
 using Xunit.Abstractions;
-using Xunit.Extensions;
 
 namespace UTs.Executor
 {
@@ -22,26 +22,33 @@ namespace UTs.Executor
         {
             //given
             var fileName = "r:\\model.zip";
+            var logFileName = "r:\\training_log.txt";
+            var amountOfIterations = 200_000;
             File.Delete(fileName);
+            File.Delete(logFileName);
 
             //when
-            var modelTrainer = new TrainModel();
-            modelTrainer.OnIterateChange += (i, bestAction) =>
+            var modelTrainer = new TrainModel()
+                .WithLatencyOff();
+
+            modelTrainer.OnIterateChange += (i,progress, bestAction, dice) =>
             {
                 try
                 {
-                    Console.WriteLine($"Iteration {i}, best action: {bestAction}");
-                    var line = $"Iteration {i}, best action: {bestAction}";
-                    File.AppendAllText("r:\\training_log.txt", line + Environment.NewLine);
+                    var dices = string.Join(',', dice);
+                    var line = $"Iteration {i}, progress: {progress}%, best action: {bestAction}, dices: {dices}";
+                    Console.WriteLine(line);
+                    File.AppendAllText(logFileName, line + Environment.NewLine);
                 }
                 catch (Exception)
                 {
-                    Output.WriteLine("Failed to write to log file.");
+                    Console.WriteLine("Failed to write to log file.");
                 }
             };
-            modelTrainer.CreateAndSaveTo(10_000, fileName);
+            modelTrainer.CreateAndSaveTo(amountOfIterations, fileName);
 
             //then
+            Assert.True(File.Exists(logFileName));
             Assert.True(File.Exists(fileName));
         }
 

@@ -1,16 +1,24 @@
 ﻿using Microsoft.ML;
 using PokerDice.AI.DataModel;
+using System.Runtime;
 
 namespace PokerDice.AI
 {
     public class TrainModel
     {
-        public Action<double, string> OnIterateChange;
+        public Action<int, double, string, int[]> OnIterateChange;
+
+        public TrainModel WithLatencyOff()
+        {
+            GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
+
+            return this;
+        }
 
         public void CreateAndSaveTo(int samples, string path)
         {
             var ml = new MLContext(seed: 42);
-            ml.GpuDeviceId = null; // 0;
+            ml.GpuDeviceId = null; // 0; WITHOUT GPU
             ml.FallbackToCpu = true;
 
             // Load data
