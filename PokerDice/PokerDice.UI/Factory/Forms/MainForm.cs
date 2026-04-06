@@ -234,11 +234,11 @@ namespace PokerDice.UI
         private int ObtainRollIndex()
         {
             if (round2Button.Enabled == true)
-                return 1;
-            if (round3Button.Enabled == true)
                 return 2;
+            if (round3Button.Enabled == true)
+                return 3;
 
-            return 0;
+            return 1;
         }
 
         private void button1_Click(object sender, EventArgs e)
