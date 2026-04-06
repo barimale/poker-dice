@@ -11,6 +11,7 @@ namespace PokerDice.UI
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+            //Application.SetColorMode(SystemColorMode.Dark);
             Application.Run(FormFactory.CreateForm());
         }
     }

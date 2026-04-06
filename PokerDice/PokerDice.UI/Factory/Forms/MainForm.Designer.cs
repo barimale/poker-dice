@@ -192,7 +192,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = SystemColors.ActiveCaptionText;
             BackgroundImage = Properties.Resources.background;
             ClientSize = new Size(675, 274);
             Controls.Add(button1);

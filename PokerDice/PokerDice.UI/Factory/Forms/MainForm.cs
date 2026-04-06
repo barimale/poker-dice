@@ -245,6 +245,18 @@ namespace PokerDice.UI
         {
             try
             {
+                var existedSolution = engine.Interpreter.InterpretToResult(context.Dice);
+
+                if (existedSolution.Type == DiceType.Poker ||
+                    existedSolution.Type == DiceType.FourOfKind ||
+                    existedSolution.Type == DiceType.Full || 
+                    existedSolution.Type == DiceType.LargeStraight ||
+                    existedSolution.Type == DiceType.SmallStraight)
+                {
+                    button4_Click(sender, e);
+                    return;
+                }
+
                 var sample = new DiceState
                 {
                     Die1 = context.Dice[0],
