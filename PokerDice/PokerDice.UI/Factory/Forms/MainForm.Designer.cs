@@ -76,6 +76,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Location = new Point(234, 233);
             label2.Name = "label2";
             label2.Size = new Size(51, 20);
@@ -85,6 +86,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Location = new Point(474, 233);
             label3.Name = "label3";
             label3.Size = new Size(43, 20);
@@ -93,6 +95,7 @@
             // 
             // dicesPanel
             // 
+            dicesPanel.BackColor = Color.Transparent;
             dicesPanel.Location = new Point(232, 61);
             dicesPanel.Name = "dicesPanel";
             dicesPanel.Size = new Size(437, 101);
@@ -138,6 +141,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label4.Location = new Point(232, 181);
             label4.Name = "label4";
@@ -148,6 +152,7 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label5.Location = new Point(232, 25);
             label5.Name = "label5";
@@ -184,6 +189,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
+            BackgroundImage = Properties.Resources.background;
             ClientSize = new Size(675, 274);
             Controls.Add(button1);
             Controls.Add(resetButton);
@@ -198,6 +204,7 @@
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(startButton);
+            DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             Text = "Form1";
