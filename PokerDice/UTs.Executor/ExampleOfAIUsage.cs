@@ -1,5 +1,4 @@
 ﻿using PokerDice.AI;
-using System.Runtime;
 using UTs.Executor.BaseUT;
 using Vortice.DXGI;
 using Xunit.Abstractions;
@@ -17,7 +16,7 @@ namespace UTs.Executor
             Console.SetOut(_redirectWriter);
         }
 
-        [Fact]
+        [Fact(Skip="For model generation only")]
         public void Execute()
         {
             //given
@@ -52,7 +51,7 @@ namespace UTs.Executor
             Assert.True(File.Exists(fileName));
         }
 
-        [Fact]
+        [Fact(Skip = "For model generation only")]
         public void RecognizeGPUDevices()
         {
             //given
