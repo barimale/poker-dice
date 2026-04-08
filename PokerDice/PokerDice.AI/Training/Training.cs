@@ -31,9 +31,7 @@ namespace PokerDice.AI.Training
                 // Decide best mask for this state, e.g. "KRRRK"
                 string bestAction = ComputeBestAction(dice, rollIndex);
 
-                OnIterateChange?.Invoke(i,(double)total.Count / samples * 100, bestAction, dice);
-
-                total.Add(new DiceState
+                if (!total.Contains(new DiceState
                 {
                     Die1 = dice[0],
                     Die2 = dice[1],
@@ -42,7 +40,21 @@ namespace PokerDice.AI.Training
                     Die5 = dice[4],
                     RollIndex = rollIndex,
                     Action = bestAction
-                });
+                }, new DiceStateComparer()))
+                {
+                    OnIterateChange?.Invoke(i, (double)total.Count / samples * 100, bestAction, dice);
+
+                    total.Add(new DiceState
+                    {
+                        Die1 = dice[0],
+                        Die2 = dice[1],
+                        Die3 = dice[2],
+                        Die4 = dice[3],
+                        Die5 = dice[4],
+                        RollIndex = rollIndex,
+                        Action = bestAction
+                    });
+                }
             });
 
             return total.AsEnumerable();
