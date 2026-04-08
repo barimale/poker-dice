@@ -9,7 +9,7 @@ namespace PokerDice.UI
 {
     public partial class MainForm : Form
     {
-        private const string ModelPath = "r:\\model.zip";
+        private const string ModelPath = "r:\\model-PL.zip";
 
         private PrivateFontCollection pfc = new PrivateFontCollection();
         private Font diceFont;
