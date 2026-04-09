@@ -16,13 +16,13 @@ namespace UTs.Executor
             Console.SetOut(_redirectWriter);
         }
 
-        [Fact(Skip="For model generation only")]
+        [Fact]
         public void Execute()
         {
             //given
             var fileName = "r:\\model-XL.zip";
             var logFileName = "r:\\training_log-XL.txt";
-            var amountOfIterations = 200_000;
+            var amountOfIterations = 10_000;
             File.Delete(fileName);
             File.Delete(logFileName);
 
@@ -51,7 +51,7 @@ namespace UTs.Executor
             Assert.True(File.Exists(fileName));
         }
 
-        [Fact(Skip = "For model generation only")]
+        [Fact]
         public void RecognizeGPUDevices()
         {
             //given
