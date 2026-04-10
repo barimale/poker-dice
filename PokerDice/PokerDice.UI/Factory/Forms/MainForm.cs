@@ -202,7 +202,7 @@ namespace PokerDice.UI
                 return;
             }
 
-            new DiceFeatures(this).Execute();
+            new DiceFeatures(this).Apply();
 
             this.round2Button.Enabled = false;
             this.round3Button.Enabled = true;
@@ -220,7 +220,7 @@ namespace PokerDice.UI
                 return;
             }
 
-            new DiceFeatures(this).Execute();
+            new DiceFeatures(this).Apply();
 
             // disable all checkboxes
             foreach (var checkbox in dicesPanel.Controls.OfType<CheckBox>())

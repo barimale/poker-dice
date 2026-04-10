@@ -9,7 +9,7 @@
             _mainForm = mainForm;
         }
 
-        public void Execute()
+        public void Apply()
         {
             var selectedIndexes = _mainForm.dicesPanel
                             .Controls
@@ -24,19 +24,20 @@
                 _mainForm.context.Dice[index - 1] = _mainForm.engine.SourceGenerator.GenerateDie();
             }
 
-            var unselectedIndexes = _mainForm.dicesPanel
-                .Controls
-                .OfType<CheckBox>()
-                .Where(c => !c.Checked)
-                .Select(c => int.Parse(c.Name))
-                .ToList();
+            // WIP na przelacznik
+            //var unselectedIndexes = _mainForm.dicesPanel
+            //    .Controls
+            //    .OfType<CheckBox>()
+            //    .Where(c => !c.Checked)
+            //    .Select(c => int.Parse(c.Name))
+            //    .ToList();
 
-            // freeze not selected dices
-            foreach (var unselected in unselectedIndexes)
-            {
-                var checkbox = _mainForm.dicesPanel.Controls.OfType<CheckBox>().First(c => c.Name == unselected.ToString());
-                checkbox.Enabled = false;
-            }
+            //// freeze not selected dices
+            //foreach (var unselected in unselectedIndexes)
+            //{
+            //    var checkbox = _mainForm.dicesPanel.Controls.OfType<CheckBox>().First(c => c.Name == unselected.ToString());
+            //    checkbox.Enabled = false;
+            //}
 
             // refresh enabled checkboxes text
             var unenabledCheckboxes =
