@@ -20,7 +20,14 @@ namespace Iterator.Model.Iterators
 
         public DiceState Next()
         {
-            return _books[_position++];
+            try
+            {
+                return _books[_position++];
+            }
+            catch (Exception ex)
+            {
+                return _books[0];
+            }
         }
     }
 
