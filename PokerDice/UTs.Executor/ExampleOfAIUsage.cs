@@ -22,7 +22,7 @@ namespace UTs.Executor
             //given
             var fileName = "r:\\model-XL.zip";
             var logFileName = "r:\\training_log-XL.txt";
-            var amountOfIterations = 10_000;
+            var amountOfIterations = -1; // 10_000;
             File.Delete(fileName);
             File.Delete(logFileName);
 

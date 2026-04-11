@@ -1,4 +1,5 @@
-﻿using PokerDice.AI.DataModel;
+﻿using Iterator.Model.Collections;
+using PokerDice.AI.DataModel;
 using System.Collections.Concurrent;
 
 namespace PokerDice.AI.Training
@@ -59,6 +60,69 @@ namespace PokerDice.AI.Training
                 {
                     OnIterateChange?.Invoke(i, (double)total.Count / samples * 100, "REDUNDANT", dice);
                 }
+            });
+
+            return total.AsEnumerable();
+        }
+
+        public IEnumerable<DiceState> GenerateTrainingData()
+        {
+            ConcurrentBag<DiceState> total = new ConcurrentBag<DiceState>();
+            var items = engine.SourceGenerator
+                .GenerateCollection()
+                .Select(p => new DiceState()
+                {
+                    Die1 = p[0],
+                    Die2 = p[1],
+                    Die3 = p[2],
+                    Die4 = p[3],
+                    Die5 = p[4]
+                });
+
+            var collection = new DiceStateCollection(items.ToArray());
+            var iterator = collection.CreateIterator();
+
+            var samples = collection.Count();
+            Parallel.For(0, samples, new ParallelOptions
+            {
+                MaxDegreeOfParallelism = Environment.ProcessorCount
+            }, i =>
+            {
+                var dice = iterator.Next().ToArray(); // engine.SourceGenerator.Generate().Dice;
+                var rollIndex = engine.SourceGenerator.GenerateRollIndex();
+
+                // Decide best mask for this state, e.g. "KRRRK"
+                string bestAction = ComputeBestAction(dice, rollIndex);
+
+                if (!total.Contains(new DiceState
+                {
+                    Die1 = dice[0],
+                    Die2 = dice[1],
+                    Die3 = dice[2],
+                    Die4 = dice[3],
+                    Die5 = dice[4],
+                    RollIndex = rollIndex,
+                    Action = bestAction
+                }, new DiceStateComparer()))
+                {
+                    OnIterateChange?.Invoke(i, (double)total.Count / samples * 100, bestAction, dice);
+
+                    total.Add(new DiceState
+                    {
+                        Die1 = dice[0],
+                        Die2 = dice[1],
+                        Die3 = dice[2],
+                        Die4 = dice[3],
+                        Die5 = dice[4],
+                        RollIndex = rollIndex,
+                        Action = bestAction
+                    });
+                }
+                else
+                {
+                    OnIterateChange?.Invoke(i, (double)total.Count / samples * 100, "REDUNDANT", dice);
+                }
+
             });
 
             return total.AsEnumerable();

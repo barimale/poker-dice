@@ -15,6 +15,19 @@ namespace PokerDiceEngine.Model
             return new DiceContext(dice);
         }
 
+        public IEnumerable<int[]> GenerateCollection()
+        {
+            var rolls =
+                from a in Enumerable.Range(1, 6)
+                from b in Enumerable.Range(1, 6)
+                from c in Enumerable.Range(1, 6)
+                from d in Enumerable.Range(1, 6)
+                from e in Enumerable.Range(1, 6)
+                select new[] { a, b, c, d, e };
+
+            return rolls;
+        }
+
         public int GenerateDie()
         {
             return _rng.Next(1, 7);

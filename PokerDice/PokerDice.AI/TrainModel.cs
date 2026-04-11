@@ -24,7 +24,7 @@ namespace PokerDice.AI
             // Load data
             var training = new Training.Training();
             training.OnIterateChange += OnIterateChange;
-            var data = ml.Data.LoadFromEnumerable(training.GenerateTrainingData(samples));
+            var data = ml.Data.LoadFromEnumerable(samples < 0 ? training.GenerateTrainingData() :  training.GenerateTrainingData(samples));
 
             // Build pipeline
             var pipeline =
@@ -37,7 +37,7 @@ namespace PokerDice.AI
                       nameof(DiceState.Die4),
                       nameof(DiceState.Die5),
                       nameof(DiceState.RollIndex)))
-                  .Append(ml.MulticlassClassification.Trainers.SdcaMaximumEntropy(
+                  .Append(ml.MulticlassClassification.Trainers.LightGbm(
                       labelColumnName: "Label",
                       featureColumnName: "Features"))
                   .Append(ml.Transforms.Conversion.MapKeyToValue("PredictedAction", "PredictedLabel"));

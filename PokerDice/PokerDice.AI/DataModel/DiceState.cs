@@ -10,5 +10,16 @@
         public float Die5 { get; set; }
         public float RollIndex { get; set; } // 1,2,3
         public string Action { get; set; }   // label: e.g. "KRRRK" (K=keep,R=reroll)
+
+        public int[] ToArray()
+        {
+            return new int[] {
+                (int)Die1,
+                (int)Die2,
+                (int)Die3,
+                (int)Die4,
+                (int)Die5
+            };
+        }
     }
 }
