@@ -15,7 +15,14 @@ namespace Iterator.Model.Iterators
 
         public bool HasNext()
         {
-            return _position < _books.Length && _books[_position] != null;
+            try
+            {
+                return _position < _books.Length && _books[_position] != null;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
         }
 
         public DiceState Next()
