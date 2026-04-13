@@ -5,19 +5,19 @@ namespace Iterator.Model.Iterators
 {
     public class DiceStateIterator : IIterator<DiceState>
     {
-        private readonly DiceState[] _books;
+        private readonly DiceState[] _items;
         private int _position = 0;
 
-        public DiceStateIterator(DiceState[] books)
+        public DiceStateIterator(DiceState[] items)
         {
-            _books = books;
+            _items = items;
         }
 
         public bool HasNext()
         {
             try
             {
-                return _position < _books.Length && _books[_position] != null;
+                return _position < _items.Length && _items[_position] != null;
             }
             catch(Exception)
             {
@@ -29,11 +29,11 @@ namespace Iterator.Model.Iterators
         {
             try
             {
-                return _books[_position++];
+                return _items[_position++];
             }
             catch (Exception ex)
             {
-                return _books[0];
+                return _items[0];
             }
         }
     }

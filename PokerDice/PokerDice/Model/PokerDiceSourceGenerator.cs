@@ -9,8 +9,8 @@ namespace PokerDiceEngine.Model
         public DiceContext Generate()
         {
             int[] dice = Enumerable.Range(0, 5)
-           .Select(_ => GenerateDie())
-           .ToArray();
+               .Select(_ => GenerateDie())
+               .ToArray();
 
             return new DiceContext(dice);
         }
