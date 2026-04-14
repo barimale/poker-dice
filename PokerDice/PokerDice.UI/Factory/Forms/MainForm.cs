@@ -206,6 +206,7 @@ namespace PokerDice.UI
 
             this.round2Button.Enabled = false;
             this.round3Button.Enabled = true;
+            ClearDiceBorders();
         }
 
         private void round3Button_Click(object sender, EventArgs e)
@@ -228,6 +229,7 @@ namespace PokerDice.UI
                 checkbox.Enabled = false;
             }
             this.round3Button.Enabled = false;
+            ClearDiceBorders();
             button4_Click(sender, e);
         }
 
@@ -301,6 +303,19 @@ namespace PokerDice.UI
             }catch(Exception)
             {
                 // intentionally left blank
+            }
+        }
+
+        private void ClearDiceBorders()
+        {
+            foreach (var checkBox in dicesPanel.Controls.OfType<CheckBox>())
+            {
+                if (checkBox != null)
+                {
+                    checkBox.FlatStyle = FlatStyle.Standard;
+                    checkBox.FlatAppearance.BorderSize = 1;
+                    checkBox.FlatAppearance.BorderColor = SystemColors.ControlDark;
+                }
             }
         }
     }
