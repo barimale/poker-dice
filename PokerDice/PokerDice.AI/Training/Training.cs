@@ -90,7 +90,7 @@ namespace PokerDice.AI.Training
             {
                 if (iterator.HasNext())
                 {
-                    var dice = iterator.Next().ToArray(); // engine.SourceGenerator.Generate().Dice;
+                    var dice = iterator.Next().ToArray();
                     var rollIndex = engine.SourceGenerator.GenerateRollIndex();
 
                     // Decide best mask for this state, e.g. "KRRRK"
