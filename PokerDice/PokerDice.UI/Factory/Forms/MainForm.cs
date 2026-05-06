@@ -166,7 +166,7 @@ namespace PokerDice.UI
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void solve_Click(object sender, EventArgs e)
         {
             var result = engine.Interpreter.InterpretToResult(context.Dice);
             textBox2.Text = result?.Result.ToString();
@@ -230,7 +230,7 @@ namespace PokerDice.UI
             }
             this.round3Button.Enabled = false;
             ClearDiceBorders();
-            button4_Click(sender, e);
+            solve_Click(sender, e);
         }
 
         private int ObtainRollIndex()
@@ -243,19 +243,18 @@ namespace PokerDice.UI
             return 1;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AI_Click(object sender, EventArgs e)
         {
             try
             {
                 var existedSolution = engine.Interpreter.InterpretToResult(context.Dice);
 
                 if (existedSolution.Type == DiceType.Poker ||
-                    //existedSolution.Type == DiceType.FourOfKind ||
                     existedSolution.Type == DiceType.Full ||
                     existedSolution.Type == DiceType.LargeStraight ||
                     existedSolution.Type == DiceType.SmallStraight)
                 {
-                    button4_Click(sender, e);
+                    solve_Click(sender, e);
                     return;
                 }
 
@@ -273,7 +272,7 @@ namespace PokerDice.UI
 
                 if (pred.PredictedAction == "KKKKK")
                 {
-                    button4_Click(sender, e);
+                    solve_Click(sender, e);
                 }
                 else
                 {

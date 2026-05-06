@@ -138,7 +138,7 @@
             solveButton.TabIndex = 10;
             solveButton.Text = "SOLVE";
             solveButton.UseVisualStyleBackColor = false;
-            solveButton.Click += button4_Click;
+            solveButton.Click += solve_Click;
             // 
             // label4
             // 
@@ -186,7 +186,7 @@
             button1.TabIndex = 14;
             button1.Text = "AI";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            button1.Click += AI_Click;
             // 
             // MainForm
             // 
