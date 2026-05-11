@@ -1,6 +1,0 @@
-R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Debug\net8.0\QuantumQsharp.csproj.AssemblyReference.cache
-R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Debug\net8.0\QuantumQsharp.GeneratedMSBuildEditorConfig.editorconfig
-R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Debug\net8.0\QuantumQsharp.AssemblyInfoInputs.cache
-R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Debug\net8.0\QuantumQsharp.AssemblyInfo.cs
-R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Debug\net8.0\QuantumQsharp.csproj.CoreCompileInputs.cache
-R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Debug\net8.0\QuantumQsharp.sourcelink.json
