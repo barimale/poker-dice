@@ -1,4 +1,7 @@
-﻿using PokerDiceEngine.Model.Dice;
+﻿using PokerDice.Quantum;
+using Microsoft.Quantum.Simulation.Core;
+using Microsoft.Quantum.Simulation.Simulators;
+using PokerDiceEngine.Model.Dice;
 
 namespace PokerDiceEngine.Model
 {
@@ -30,7 +33,13 @@ namespace PokerDiceEngine.Model
 
         public int GenerateDie()
         {
-            return _rng.Next(1, 7);
+#if NET6_0
+            using var sim = new QuantumSimulator();
+            var result = RollQuantumDie.Run(sim).Result;
+            return (int)result;
+#else
+    throw new PlatformNotSupportedException("Quantum operations require .NET 6");
+#endif            
         }
 
         public int GenerateRollIndex()
