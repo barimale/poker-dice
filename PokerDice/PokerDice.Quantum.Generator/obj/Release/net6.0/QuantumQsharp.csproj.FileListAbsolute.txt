@@ -1,0 +1,13 @@
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\bin\Release\net6.0\QuantumQsharp.deps.json
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\bin\Release\net6.0\QuantumQsharp.dll
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\bin\Release\net6.0\QuantumQsharp.pdb
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\QuantumQsharp.csproj.AssemblyReference.cache
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\QuantumQsharp.GeneratedMSBuildEditorConfig.editorconfig
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\QuantumQsharp.AssemblyInfoInputs.cache
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\QuantumQsharp.AssemblyInfo.cs
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\QuantumQsharp.csproj.CoreCompileInputs.cache
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\QuantumQsharp.sourcelink.json
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\QuantumQsharp.dll
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\refint\QuantumQsharp.dll
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\QuantumQsharp.pdb
+R:\poker-dice\PokerDice\PokerDice.Quantum.Generator\obj\Release\net6.0\ref\QuantumQsharp.dll
