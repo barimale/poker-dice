@@ -160,6 +160,9 @@
             button1.TabIndex = 14;
             button1.Text = "AI";
             button1.UseVisualStyleBackColor = false;
+            button1.Appearance = Appearance.Button;
+            button1.TextAlign = ContentAlignment.MiddleCenter;
+            button1.CheckedChanged += button1_CheckedChanged;
             button1.Click += AI_Click;
             // 
             // MainForm
