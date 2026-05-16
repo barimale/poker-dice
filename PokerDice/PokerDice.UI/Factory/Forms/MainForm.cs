@@ -102,6 +102,7 @@ namespace PokerDice.UI
             textBox2.Text = "";
             textBox3.Text = "";
             button1.Checked = false;
+            this.startButton.Font = new Font(this.startButton.Font.FontFamily, 20, FontStyle.Bold);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
