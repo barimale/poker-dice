@@ -101,6 +101,7 @@ namespace PokerDice.UI
             this.button1.Enabled = false;
             textBox2.Text = "";
             textBox3.Text = "";
+            button1.Checked = false;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -116,6 +117,16 @@ namespace PokerDice.UI
 
         private void round1Button_Click(object sender, EventArgs e)
         {
+            var anySelected = dicesPanel
+                            .Controls
+                            .OfType<CheckBox>()
+                            .Any(c => c.Checked);
+
+            if (!anySelected && selectedRoundNumber != 1)
+            {
+                return;
+            }
+
             if (selectedRoundNumber == 1)
             {
                 RoundOneExecute();
@@ -128,8 +139,6 @@ namespace PokerDice.UI
                 {
                     button1.Checked = false;
                 }
-
-                AI_Click(sender, e);
             }
             else if (selectedRoundNumber == 2)
             {
@@ -143,8 +152,6 @@ namespace PokerDice.UI
                 {
                     button1.Checked = false;
                 }
-
-                AI_Click(sender, e);
             }
             else
             {
@@ -216,10 +223,13 @@ namespace PokerDice.UI
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            Form1_Load(sender, e);
             dicesPanel.Controls.Clear();
             selectedRoundNumber = 1;
             startButton.Text = "ROUND I";
+            button1.Enabled = false;
+            button1.Checked = false;
+            IsAIActivated = false;
+            Form1_Load(sender, e);
         }
 
         private void round2Button_Click(object sender, EventArgs e)
@@ -295,8 +305,6 @@ namespace PokerDice.UI
                     }
                 }
 
-                IsAIActivated = true;
-
                 return;
             }
             try
@@ -358,8 +366,6 @@ namespace PokerDice.UI
             {
                 // intentionally left blank
             }
-
-            IsAIActivated = false;
         }
 
         private void ClearDiceBorders()
@@ -377,16 +383,23 @@ namespace PokerDice.UI
 
         private void button1_CheckedChanged(object sender, EventArgs e)
         {
+            var mapped = sender as CheckBox;
+            if (!IsAIActivated && mapped.CheckState == CheckState.Unchecked)
+                return;
+
+            if (IsAIActivated && mapped.CheckState == CheckState.Checked)
+                return;
+
             IsAIActivated = !IsAIActivated;
             if (IsAIActivated)
             {
-                button1.BackColor = Color.Fuchsia;
-                button1.ForeColor = Color.White;
+                button1.BackColor = Color.White;
+                button1.ForeColor = Color.Fuchsia;
             }
             else
             {
-                button1.BackColor = Color.White;
-                button1.ForeColor = Color.Fuchsia;
+                button1.BackColor = Color.Fuchsia;
+                button1.ForeColor = Color.White;
             }
 
             AI_Click(sender, e);
