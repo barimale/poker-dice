@@ -1,4 +1,6 @@
-﻿namespace PokerDiceEngine.Engine
+﻿using PokerDiceEngine.Model.Dice;
+
+namespace PokerDiceEngine.Engine
 {
     public interface IHandEvaluator
     {
