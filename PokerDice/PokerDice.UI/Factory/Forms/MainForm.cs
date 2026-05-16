@@ -149,7 +149,6 @@ namespace PokerDice.UI
                 {
                     button1.Checked = true;
                     AI_Click(sender, e);
-
                 }
                 else
                 {
@@ -257,7 +256,6 @@ namespace PokerDice.UI
 
             new DiceFeatures(this).Apply();
 
-            IsAIActivated = true;
             ClearDiceBorders();
 
             selectedRoundNumber = 3;
