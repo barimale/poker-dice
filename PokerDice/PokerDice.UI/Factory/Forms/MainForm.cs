@@ -147,6 +147,8 @@ namespace PokerDice.UI
                 if (IsAIActivated)
                 {
                     button1.Checked = true;
+                    AI_Click(sender, e);
+
                 }
                 else
                 {
