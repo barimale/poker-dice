@@ -221,6 +221,9 @@ namespace PokerDice.UI
             }
 
             startButton.Enabled = false;
+            IsAIActivated = false;
+            button1.Checked = false;
+            selectedRoundNumber = 1;
         }
 
         private void resetButton_Click(object sender, EventArgs e)
