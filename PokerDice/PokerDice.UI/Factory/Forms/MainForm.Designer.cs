@@ -35,13 +35,11 @@
             label2 = new Label();
             label3 = new Label();
             dicesPanel = new FlowLayoutPanel();
-            round2Button = new Button();
-            round3Button = new Button();
             solveButton = new Button();
             label4 = new Label();
             label5 = new Label();
             resetButton = new Button();
-            button1 = new Button();
+            button1 = new CheckBox();
             SuspendLayout();
             // 
             // startButton
@@ -51,7 +49,7 @@
             startButton.ForeColor = SystemColors.Control;
             startButton.Location = new Point(12, 12);
             startButton.Name = "startButton";
-            startButton.Size = new Size(200, 46);
+            startButton.Size = new Size(200, 150);
             startButton.TabIndex = 0;
             startButton.Text = "ROUND I";
             startButton.UseVisualStyleBackColor = false;
@@ -102,30 +100,6 @@
             dicesPanel.Name = "dicesPanel";
             dicesPanel.Size = new Size(437, 101);
             dicesPanel.TabIndex = 7;
-            // 
-            // round2Button
-            // 
-            round2Button.BackColor = Color.White;
-            round2Button.ForeColor = Color.FromArgb(0, 192, 0);
-            round2Button.Location = new Point(12, 64);
-            round2Button.Name = "round2Button";
-            round2Button.Size = new Size(200, 46);
-            round2Button.TabIndex = 8;
-            round2Button.Text = "ROUND II";
-            round2Button.UseVisualStyleBackColor = false;
-            round2Button.Click += round2Button_Click;
-            // 
-            // round3Button
-            // 
-            round3Button.BackColor = Color.White;
-            round3Button.ForeColor = Color.FromArgb(0, 192, 0);
-            round3Button.Location = new Point(12, 116);
-            round3Button.Name = "round3Button";
-            round3Button.Size = new Size(200, 46);
-            round3Button.TabIndex = 9;
-            round3Button.Text = "ROUND III";
-            round3Button.UseVisualStyleBackColor = false;
-            round3Button.Click += round3Button_Click;
             // 
             // solveButton
             // 
@@ -200,8 +174,6 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(solveButton);
-            Controls.Add(round3Button);
-            Controls.Add(round2Button);
             Controls.Add(dicesPanel);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -225,12 +197,10 @@
         private Label label2;
         private Label label3;
         public FlowLayoutPanel dicesPanel;
-        private Button round2Button;
-        private Button round3Button;
         private Button solveButton;
         private Label label4;
         private Label label5;
         private Button resetButton;
-        private Button button1;
+        private CheckBox button1;
     }
 }

@@ -9,7 +9,7 @@
             _mainForm = mainForm;
         }
 
-        public void ApplyButtonEnabledStyle(Button button, Color enabledColor, bool changeFont)
+        public void ApplyButtonEnabledStyle(Control button, Color enabledColor, bool changeFont)
         {
             if (button == null) return;
 

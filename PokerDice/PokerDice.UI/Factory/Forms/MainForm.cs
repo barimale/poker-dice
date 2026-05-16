@@ -20,6 +20,7 @@ namespace PokerDice.UI
         public PokerDiceEngine.PokerDiceEngine engine = new PokerDiceEngine.PokerDiceEngine();
         public DiceContext context;
 
+        private int selectedRoundNumber = 1;
         public MainForm()
         {
             InitializeComponent();
@@ -40,6 +41,8 @@ namespace PokerDice.UI
             { 
                 // intentionally left blank
             }
+
+            startButton.Text = "ROUND I";
         }
 
         private void Control_MouseEnter(object sender, EventArgs e)
@@ -66,19 +69,9 @@ namespace PokerDice.UI
                 new MainButtonFeatures(this).ApplyButtonEnabledStyle(startButton, Color.Green, changeFont: true);
             };
 
-            this.round2Button.EnabledChanged += (s, ev) =>
-            {
-                new MainButtonFeatures(this).ApplyButtonEnabledStyle(round2Button, Color.Green, changeFont: false);
-            };
-
             this.solveButton.EnabledChanged += (s, ev) =>
             {
                 new MainButtonFeatures(this).ApplyButtonEnabledStyle(solveButton, Color.Red, changeFont: true);
-            };
-
-            this.round3Button.EnabledChanged += (s, ev) =>
-            {
-                new MainButtonFeatures(this).ApplyButtonEnabledStyle(round3Button, Color.Green, changeFont: false);
             };
 
             this.resetButton.EnabledChanged += (s, ev) =>
@@ -101,8 +94,6 @@ namespace PokerDice.UI
             };
 
             this.startButton.Enabled = true;
-            this.round2Button.Enabled = false;
-            this.round3Button.Enabled = false;
             this.solveButton.Enabled = false;
             this.resetButton.Enabled = false;
             this.button1.Enabled = false;
@@ -122,6 +113,24 @@ namespace PokerDice.UI
         }
 
         private void round1Button_Click(object sender, EventArgs e)
+        {
+            if (selectedRoundNumber == 1)
+            {
+                RoundOneExecute();
+                startButton.Text = "ROUND II";
+            }
+            else if (selectedRoundNumber == 2)
+            {
+                RoundTwoExecute();
+                startButton.Text = "ROUND III";
+            }
+            else
+            {
+                RoundThreeExecute(sender, e);
+            }
+        }
+
+        private void RoundOneExecute()
         {
             context = engine.SourceGenerator.Generate();
             // apply dice to checkboxes
@@ -145,11 +154,12 @@ namespace PokerDice.UI
                 index += 1;
             }
 
-            this.startButton.Enabled = false;
             this.solveButton.Enabled = true;
             this.resetButton.Enabled = true;
-            this.round2Button.Enabled = true;
             this.button1.Enabled = true;
+            IsAIActivated = true;
+
+            selectedRoundNumber = 2;
         }
 
         private void CheckBox_EnabledChanged(object? sender, EventArgs e)
@@ -172,8 +182,6 @@ namespace PokerDice.UI
             textBox2.Text = result?.Result.ToString();
             textBox3.Text = result?.Type.ToString();
             solveButton.Enabled = false;
-            round2Button.Enabled = false;
-            round3Button.Enabled = false;
             button1.Enabled = false;
 
             foreach (var checkbox in dicesPanel.Controls.OfType<CheckBox>())
@@ -181,21 +189,29 @@ namespace PokerDice.UI
                 checkbox.Checked = false;
                 checkbox.Enabled = false;
             }
+
+            startButton.Enabled = false;
         }
 
         private void resetButton_Click(object sender, EventArgs e)
         {
             Form1_Load(sender, e);
             dicesPanel.Controls.Clear();
-            round1Button_Click(sender, e);
+            selectedRoundNumber = 1;
+            startButton.Text = "ROUND I";
         }
 
         private void round2Button_Click(object sender, EventArgs e)
         {
+            RoundTwoExecute();
+        }
+
+        private void RoundTwoExecute()
+        {
             var anySelected = dicesPanel
-                .Controls
-                .OfType<CheckBox>()
-                .Any(c => c.Checked);
+                            .Controls
+                            .OfType<CheckBox>()
+                            .Any(c => c.Checked);
 
             if (!anySelected)
             {
@@ -204,17 +220,23 @@ namespace PokerDice.UI
 
             new DiceFeatures(this).Apply();
 
-            this.round2Button.Enabled = false;
-            this.round3Button.Enabled = true;
+            IsAIActivated = true;
             ClearDiceBorders();
+
+            selectedRoundNumber = 3;
         }
 
         private void round3Button_Click(object sender, EventArgs e)
         {
+            RoundThreeExecute(sender, e);
+        }
+
+        private void RoundThreeExecute(object sender, EventArgs e)
+        {
             var anySelected = dicesPanel
-                .Controls
-                .OfType<CheckBox>()
-                .Any(c => c.Checked);
+                            .Controls
+                            .OfType<CheckBox>()
+                            .Any(c => c.Checked);
 
             if (!anySelected)
             {
@@ -228,19 +250,14 @@ namespace PokerDice.UI
             {
                 checkbox.Enabled = false;
             }
-            this.round3Button.Enabled = false;
+            IsAIActivated = false;
             ClearDiceBorders();
             solve_Click(sender, e);
         }
 
         private int ObtainRollIndex()
         {
-            if (round2Button.Enabled == true)
-                return 2;
-            if (round3Button.Enabled == true)
-                return 3;
-
-            return 1;
+            return selectedRoundNumber;
         }
 
         private bool IsAIActivated = true;
