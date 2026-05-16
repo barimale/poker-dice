@@ -3,6 +3,7 @@ using PokerDice.AI.DataModel;
 using PokerDice.UI.Features;
 using PokerDiceEngine.Model.Dice;
 using System.Drawing.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using CheckBox = System.Windows.Forms.CheckBox;
 
 namespace PokerDice.UI
@@ -104,11 +105,9 @@ namespace PokerDice.UI
             this.round3Button.Enabled = false;
             this.solveButton.Enabled = false;
             this.resetButton.Enabled = false;
-            this.button1.Enabled = true;
+            this.button1.Enabled = false;
             textBox2.Text = "";
             textBox3.Text = "";
-
-            round1Button_Click(sender, e);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -150,6 +149,7 @@ namespace PokerDice.UI
             this.solveButton.Enabled = true;
             this.resetButton.Enabled = true;
             this.round2Button.Enabled = true;
+            this.button1.Enabled = true;
         }
 
         private void CheckBox_EnabledChanged(object? sender, EventArgs e)
@@ -243,8 +243,25 @@ namespace PokerDice.UI
             return 1;
         }
 
+        private bool IsAIActivated = true;
         private void AI_Click(object sender, EventArgs e)
         {
+            if(!IsAIActivated)
+            {
+                foreach (var checkBox in dicesPanel.Controls.OfType<CheckBox>())
+                {
+                    if(checkBox != null)
+                    {
+                        checkBox.FlatStyle = FlatStyle.Standard;
+                        checkBox.FlatAppearance.BorderSize = 1;
+                        checkBox.FlatAppearance.BorderColor = SystemColors.ControlDark;
+                    }
+                }
+
+                IsAIActivated = true;
+
+                return;
+            }
             try
             {
                 var existedSolution = engine.Interpreter.InterpretToResult(context.Dice);
@@ -303,6 +320,8 @@ namespace PokerDice.UI
             {
                 // intentionally left blank
             }
+
+            IsAIActivated = false;
         }
 
         private void ClearDiceBorders()
