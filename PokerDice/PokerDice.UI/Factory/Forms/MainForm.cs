@@ -224,6 +224,9 @@ namespace PokerDice.UI
             IsAIActivated = false;
             button1.Checked = false;
             selectedRoundNumber = 1;
+            button1.FlatStyle = FlatStyle.Standard;
+            button1.FlatAppearance.BorderSize = 1;
+            button1.FlatAppearance.BorderColor = SystemColors.ControlDark;
         }
 
         private void resetButton_Click(object sender, EventArgs e)
