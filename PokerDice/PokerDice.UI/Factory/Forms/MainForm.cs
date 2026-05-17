@@ -10,7 +10,7 @@ namespace PokerDice.UI
 {
     public partial class MainForm : Form
     {
-        private const string ModelPath = "r:\\model-XL.zip";
+        private const string ModelPath = @"./Resources/model-XL.zip";
 
         private PrivateFontCollection pfc = new PrivateFontCollection();
         private Font diceFont;
@@ -402,7 +402,7 @@ namespace PokerDice.UI
             {
                 button1.FlatStyle = FlatStyle.Flat;
                 button1.FlatAppearance.BorderSize = 5;
-                button1.FlatAppearance.BorderColor = Color.Gold;
+                button1.FlatAppearance.BorderColor = Color.White;
             }
             else
             {
