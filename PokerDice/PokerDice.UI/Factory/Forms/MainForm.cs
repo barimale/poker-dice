@@ -397,13 +397,15 @@ namespace PokerDice.UI
             IsAIActivated = !IsAIActivated;
             if (IsAIActivated)
             {
-                button1.BackColor = Color.White;
-                button1.ForeColor = Color.Fuchsia;
+                button1.FlatStyle = FlatStyle.Flat;
+                button1.FlatAppearance.BorderSize = 5;
+                button1.FlatAppearance.BorderColor = Color.Gold;
             }
             else
             {
-                button1.BackColor = Color.Fuchsia;
-                button1.ForeColor = Color.White;
+                button1.FlatStyle = FlatStyle.Standard;
+                button1.FlatAppearance.BorderSize = 1;
+                button1.FlatAppearance.BorderColor = SystemColors.ControlDark;
             }
 
             AI_Click(sender, e);
