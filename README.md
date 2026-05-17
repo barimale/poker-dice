@@ -5,8 +5,8 @@ z asystentem AI.
 # Klasyfikator
 LightGBM
 
-# Dice Generator
-Generator written in Q#.
+# Generator rzutu kośćmi
+Generator napisany w Q#.
 
 # Przykład użycia
 ![video.gif](./Results/video.gif)
